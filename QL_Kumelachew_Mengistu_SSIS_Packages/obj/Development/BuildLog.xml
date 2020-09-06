@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Kumelachew_Mengistu_SSIS_Packages</Name>
-    <LastWriteTime>2020-09-01T22:40:49.2761949Z</LastWriteTime>
+    <LastWriteTime>2020-09-06T02:51:47.8688755Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_LendingQB.dtsx</Name>
-      <LastWriteTime>2020-09-04T23:33:05.0947775Z</LastWriteTime>
+      <LastWriteTime>2020-09-06T03:22:51.706368Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
