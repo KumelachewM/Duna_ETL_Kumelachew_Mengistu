@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_LendingQB"
   DTS:PackageType="5"
-  DTS:VersionBuild="204"
-  DTS:VersionGUID="{BE1FBB63-2699-4A27-9AA5-E80AC0B599F9}">
+  DTS:VersionBuild="206"
+  DTS:VersionGUID="{F25DC32F-E60F-4A51-BAAF-E033BD2CEDED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -140,7 +140,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/9/2020 12:55:42 AM</DTS:VariableValue>
+        DTS:DataType="7">9/10/2020 8:55:11 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -195,7 +195,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/9/2020 12:55:42 AM</DTS:VariableValue>
+        DTS:DataType="7">9/10/2020 8:55:11 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -23006,11 +23006,17 @@ where [refTable].[MarketSourceCode] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{EA0866E2-AFC5-42DE-A6CB-534F63DD1D71}"
-          SQLTask:SqlStatementSource="SELECT MAX(lastModifiedDate) as MaxLastModifiedDate&#xA;FROM [dbo].[Stg_kumelachew_Mengistu_QL]"
+          SQLTask:SqlStatementSource="SELECT MAX(lastModifiedDate) as MaxLastModifiedDate&#xA;FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;Where SourceName = ?"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="MaxLastModifiedDate"
             SQLTask:DtsVariableName="User::varMaxLastModifiedDate" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::varSourceName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -23035,12 +23041,13 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\GetMaxLastModifiedDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{E90CAB66-8A40-4079-B273-C476FD84F24F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="GetMaxLastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -23068,34 +23075,26 @@ where [refTable].[MarketSourceCode] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{F6C9FEC4-1D2E-4120-9234-DF3AD0105223}"
+      DTS:DTSID="{B0652A47-FCD6-48C7-84C3-31CD579676E6}"
       DTS:From="Package\Execute SQL Task_Delete_LendingQB"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task_LendingQB" />
+      DTS:To="Package\ESQL_Task_LastModifiedDate" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{86072C5C-4ECB-4D11-B569-30434E8454B3}"
-      DTS:From="Package\GetMaxLastModifiedDate"
+      DTS:DTSID="{2B873FB1-A9ED-4E9B-B52C-A21A05FFEE82}"
+      DTS:From="Package\ESQL_Task_LastModifiedDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Execute SQL Task_Delete_LendingQB" />
+      DTS:To="Package\Data Flow Task_LendingQB" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{9F0AEFD9-569A-4AD0-A97A-DAC93EB88440}"
+      DTS:DTSID="{D4E2F0A9-10B0-435B-8A8E-863499376330}"
       DTS:From="Package\Data Flow Task_LendingQB"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\ESQL_Task_LastModifiedDate" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{87D48AA1-2182-40BE-B791-DD103F799B4A}"
-      DTS:From="Package\ESQL_Task_LastModifiedDate"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3"
       DTS:To="Package\ESQL_Task_ETL_Log" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
@@ -23196,14 +23195,35 @@ where [refTable].[MarketSourceCode] = ?</property>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -23600,35 +23620,14 @@ namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -23860,15 +23859,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="208.571428571429,42.2857142857143"
           Id="Package\Data Flow Task_LendingQB"
-          TopLeft="350.555564842106,193.869570241533" />
+          TopLeft="52.222223605638,296.739138124796" />
         <NodeLayout
           Size="178.285714285715,42.2857142857143"
           Id="Package\ESQL_Task_ETL_Log"
-          TopLeft="82.2222244003673,307.478268837884" />
+          TopLeft="51.1111124650932,391.695662324731" />
         <NodeLayout
           Size="218.857142857143,42.2857142857143"
           Id="Package\ESQL_Task_LastModifiedDate"
@@ -23876,25 +23875,37 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="256.571428571429,42.2857142857143"
           Id="Package\Execute SQL Task_Delete_LendingQB"
-          TopLeft="325.555564179833,81.3913064570869" />
+          TopLeft="41.6666677704567,97.2173938237427" />
         <NodeLayout
           Size="196,42.2857142857143"
           Id="Package\GetMaxLastModifiedDate"
-          TopLeft="15.0000003973637,83.0869586749427" />
+          TopLeft="911.666690817586,41.2608706344953" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="454.341278796684,123.677020742801">
+          TopLeft="169.952382056171,139.503108109457">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.1925494987318"
+              EndConnector="-14.4126982949612,54.931679538028"
               Start="0,0"
-              End="0,62.6925494987318">
+              End="-14.4126982949612,47.431679538028">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.6925494987318" />
+                    End="0,23.465839769014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.465839769014"
+                    Point2="0,27.465839769014"
+                    Point3="-4,27.465839769014" />
+                  <mssgle:LineSegment
+                    End="-10.4126982949612,27.465839769014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.4126982949612,27.465839769014"
+                    Point2="-14.4126982949612,27.465839769014"
+                    Point3="-14.4126982949612,31.465839769014" />
+                  <mssgle:LineSegment
+                    End="-14.4126982949612,47.431679538028" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23905,18 +23916,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="211.000000397364,103.381989708872">
+          TopLeft="156.023810826281,236.720501933199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114.555563782469,0"
+              EndConnector="0,60.0186361915964"
               Start="0,0"
-              End="107.055563782469,0">
+              End="0,52.5186361915964">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="107.055563782469,0" />
+                    End="0,52.5186361915964" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23927,52 +23938,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="350.555564842106,215.295036087366">
+          TopLeft="156.507937891352,339.02485241051">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-85.5873096523248,0"
+              EndConnector="-16.253968283402,52.670809914221"
               Start="0,0"
-              End="-78.0873096523248,0">
+              End="-16.253968283402,45.170809914221">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-78.0873096523248,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="155.53968376121,236.720501933199">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="15.8253977820147,70.7577669046844"
-              Start="0,0"
-              End="15.8253977820147,63.2577669046844">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.3788834523422" />
+                    End="0,22.3354049571105" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.3788834523422"
-                    Point2="0,35.3788834523422"
-                    Point3="4,35.3788834523422" />
+                    Point1="0,22.3354049571105"
+                    Point2="0,26.3354049571105"
+                    Point3="-4,26.3354049571105" />
                   <mssgle:LineSegment
-                    End="11.8253977820147,35.3788834523422" />
+                    End="-12.253968283402,26.3354049571105" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.8253977820147,35.3788834523422"
-                    Point2="15.8253977820147,35.3788834523422"
-                    Point3="15.8253977820147,39.3788834523422" />
+                    Point1="-12.253968283402,26.3354049571105"
+                    Point2="-16.253968283402,26.3354049571105"
+                    Point3="-16.253968283402,30.3354049571105" />
                   <mssgle:LineSegment
-                    End="15.8253977820147,63.2577669046844" />
+                    End="-16.253968283402,45.170809914221" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23988,7 +23977,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -24028,7 +24017,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

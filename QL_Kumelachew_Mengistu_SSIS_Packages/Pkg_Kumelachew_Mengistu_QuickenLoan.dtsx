@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_QuickenLoan"
   DTS:PackageType="5"
-  DTS:VersionBuild="229"
-  DTS:VersionGUID="{3D055EF2-A253-4510-9E7B-6464D0F573F1}">
+  DTS:VersionBuild="242"
+  DTS:VersionGUID="{D34C282F-9171-4878-9CBB-3DDEE6F4F0AC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -53,6 +53,18 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A213377-109B-4D7B-88E4-AE59DCB5DE20}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;DELETE FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;WHERE SourceName ='QuickenLoan'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varDeleteSTGTable">
+      <DTS:VariableValue
+        DTS:DataType="8">DELETE FROM [dbo].[Stg_kumelachew_Mengistu_QL]
+WHERE SourceName ='QuickenLoan'</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -139,7 +151,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 6:30:42 PM</DTS:VariableValue>
+        DTS:DataType="7">9/10/2020 8:51:13 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -194,7 +206,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 6:30:42 PM</DTS:VariableValue>
+        DTS:DataType="7">9/10/2020 8:51:13 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -320,20 +332,20 @@ END</DTS:VariableValue>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1"
+              refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split 1"
+              name="Conditional Split_Incremental_Load"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
+                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
                       cachedDataType="dbTimeStamp"
                       cachedName="LastModifiedDate__c"
                       lineageId="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[LastModifiedDate__c]" />
@@ -343,13 +355,13 @@ END</DTS:VariableValue>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[keep]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Case1]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="keep"
-                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input]"
+                  name="Case1"
+                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
@@ -371,11 +383,11 @@ END</DTS:VariableValue>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -384,23 +396,23 @@ END</DTS:VariableValue>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -11416,13 +11428,18 @@ where [refTable].[MarketSourceCode] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\Data Flow Task_QuickenLoan.Paths[Case1]"
+              endId="Package\Data Flow Task_QuickenLoan\Row Count.Inputs[Row Count Input 1]"
+              name="Case1"
+              startId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Case1]" />
+            <path
               refId="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output]"
               endId="Package\Data Flow Task_QuickenLoan\MarketSourceLookup.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Data Flow Task_QuickenLoan\Derived Column 1.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output1]"
-              endId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Inputs[Conditional Split Input]"
+              endId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
               name="Derived Column Output"
               startId="Package\Data Flow Task_QuickenLoan\MortgageInsuranceCompany.Outputs[Derived Column Output]" />
             <path
@@ -11435,11 +11452,6 @@ where [refTable].[MarketSourceCode] = ?</property>
               endId="Package\Data Flow Task_QuickenLoan\Derived Column 1.Inputs[Derived Column Input]"
               name="Keep"
               startId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[Keep]" />
-            <path
-              refId="Package\Data Flow Task_QuickenLoan.Paths[keep]"
-              endId="Package\Data Flow Task_QuickenLoan\Row Count.Inputs[Row Count Input 1]"
-              name="keep"
-              startId="Package\Data Flow Task_QuickenLoan\Conditional Split 1.Outputs[keep]" />
             <path
               refId="Package\Data Flow Task_QuickenLoan.Paths[Lookup Match Output]"
               endId="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance.Inputs[Fuzzy Lookup Input]"
@@ -11463,7 +11475,6 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\ESQL_Task_ETL_Log"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{E89D0545-F34A-4558-B107-C3F05873E83F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11524,7 +11535,6 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\ESQL_Task_LastModifiedDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{5B5FAB45-BE11-4BAA-B11A-98B7610AE240}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11535,11 +11545,17 @@ where [refTable].[MarketSourceCode] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{84725EF7-11D7-4E0B-82A3-A6B4FC61F417}"
-          SQLTask:SqlStatementSource="SELECT MAX(lastModifiedDate) as MaxLastModifiedDate&#xA;FROM [dbo].[Stg_kumelachew_Mengistu_QL]"
+          SQLTask:SqlStatementSource="SELECT MAX(lastModifiedDate) as MaxLastModifiedDate&#xA;FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;Where SourceName =?&#xA;&#xA;"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="MaxLastModifiedDate"
             SQLTask:DtsVariableName="User::varMaxLastModifiedDate" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::varSourceName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -11552,12 +11568,13 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task_Delete_QuickenLoan"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{84725EF7-11D7-4E0B-82A3-A6B4FC61F417}"
-          SQLTask:SqlStatementSource="DELETE FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;WHERE SourceName ='QuickenLoan'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::varDeleteSTGTable" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -11596,18 +11613,26 @@ where [refTable].[MarketSourceCode] = ?</property>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{8F62D0D1-E812-46C6-8ACF-F9ACD9E67A85}"
-      DTS:From="Package\GetMaxLastModifiedDate"
+      DTS:DTSID="{6CA9C0A2-0EA3-4BF3-B811-EBC92A4E5657}"
+      DTS:From="Package\Execute SQL Task_Delete_QuickenLoan"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Execute SQL Task_Delete_QuickenLoan" />
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ESQL_Task_LastModifiedDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{59774036-7D0F-4472-9063-B0FB6C7A4D0A}"
+      DTS:From="Package\ESQL_Task_LastModifiedDate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow Task_QuickenLoan" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{3F8FAFE4-1881-4838-B67D-79B6D95AFE29}"
-      DTS:From="Package\ESQL_Task_LastModifiedDate"
+      DTS:DTSID="{2486CBF3-E269-43BA-8CC6-746EB3DD456C}"
+      DTS:From="Package\Data Flow Task_QuickenLoan"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\ESQL_Task_ETL_Log" />
@@ -12469,37 +12494,83 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="217.714285714286,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan"
-          TopLeft="350.555564842106,193.869570241533" />
+          TopLeft="90.555557954458,257.739137114108" />
         <NodeLayout
           Size="178.285714285715,42.2857142857143"
           Id="Package\ESQL_Task_ETL_Log"
-          TopLeft="82.2222244003673,307.478268837884" />
+          TopLeft="103.888891641005,350.434791690235" />
         <NodeLayout
           Size="218.857142857143,42.2857142857143"
           Id="Package\ESQL_Task_LastModifiedDate"
-          TopLeft="46.1111123326383,194.434787647485" />
+          TopLeft="78.8888909787307,178.608700280829" />
         <NodeLayout
           Size="265.714285714286,42.2857142857143"
           Id="Package\Execute SQL Task_Delete_QuickenLoan"
-          TopLeft="325.555564179833,81.3913064570869" />
+          TopLeft="38.8888899190929,75.739132397567" />
         <NodeLayout
           Size="196,42.2857142857143"
           Id="Package\GetMaxLastModifiedDate"
-          TopLeft="15.0000003973637,83.0869586749427" />
+          TopLeft="0.555555570272148,19.7826092083196" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="211.000000397364,103.381989708872">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="171.746032776236,118.024846683281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114.555563782469,0"
+              EndConnector="16.5714296310663,60.583853597548"
               Start="0,0"
-              End="107.055563782469,0">
+              End="16.5714296310663,53.083853597548">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="107.055563782469,0" />
+                    End="0,26.291926798774" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.291926798774"
+                    Point2="0,30.291926798774"
+                    Point3="4,30.291926798774" />
+                  <mssgle:LineSegment
+                    End="12.5714296310663,30.291926798774" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5714296310663,30.291926798774"
+                    Point2="16.5714296310663,30.291926798774"
+                    Point3="16.5714296310663,34.291926798774" />
+                  <mssgle:LineSegment
+                    End="16.5714296310663,53.083853597548" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="188.317462407302,220.894414566544">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.0952384042988,36.8447225475647"
+              Start="0,0"
+              End="11.0952384042988,29.3447225475647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.4223612737824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4223612737824"
+                    Point2="0,18.4223612737824"
+                    Point3="4,18.4223612737824" />
+                  <mssgle:LineSegment
+                    End="7.09523840429878,18.4223612737824" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.09523840429878,18.4223612737824"
+                    Point2="11.0952384042988,18.4223612737824"
+                    Point3="11.0952384042988,22.4223612737824" />
+                  <mssgle:LineSegment
+                    End="11.0952384042988,29.3447225475647" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12510,30 +12581,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="155.53968376121,236.720501933199">
+          TopLeft="196.222224797731,300.024851399823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.8253977820147,70.7577669046844"
+              EndConnector="0,50.4099402904129"
               Start="0,0"
-              End="15.8253977820147,63.2577669046844">
+              End="0,42.9099402904129">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.3788834523422" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.3788834523422"
-                    Point2="0,35.3788834523422"
-                    Point3="4,35.3788834523422" />
-                  <mssgle:LineSegment
-                    End="11.8253977820147,35.3788834523422" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.8253977820147,35.3788834523422"
-                    Point2="15.8253977820147,35.3788834523422"
-                    Point3="15.8253977820147,39.3788834523422" />
-                  <mssgle:LineSegment
-                    End="15.8253977820147,63.2577669046844" />
+                    End="0,42.9099402904129" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12549,7 +12608,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -12589,9 +12648,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12795,35 +12852,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="164.571428571429,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\Conditional Split 1"
-          TopLeft="89.4444468139131,270.739137451004" />
+          Size="245.714285714286,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load"
+          TopLeft="118.888892038369,284.869572599804" />
         <EdgeLayout
           Id="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output1]"
           TopLeft="188.809525972951,228.242240843919">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.0793648733234,42.4968966070851"
+              EndConnector="52.9365089225609,56.6273317558847"
               Start="0,0"
-              End="-17.0793648733234,34.9968966070851">
+              End="52.9365089225609,49.1273317558847">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.2484483035425" />
+                    End="0,24.3136658779424" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.2484483035425"
-                    Point2="0,21.2484483035425"
-                    Point3="-4,21.2484483035425" />
+                    Point1="0,24.3136658779424"
+                    Point2="0,28.3136658779424"
+                    Point3="4,28.3136658779424" />
                   <mssgle:LineSegment
-                    End="-13.0793648733234,21.2484483035425" />
+                    End="48.9365089225609,28.3136658779424" />
                   <mssgle:CubicBezierSegment
-                    Point1="-13.0793648733234,21.2484483035425"
-                    Point2="-17.0793648733234,21.2484483035425"
-                    Point3="-17.0793648733234,25.2484483035425" />
+                    Point1="48.9365089225609,28.3136658779424"
+                    Point2="52.9365089225609,28.3136658779424"
+                    Point3="52.9365089225609,32.3136658779424" />
                   <mssgle:LineSegment
-                    End="-17.0793648733234,34.9968966070851" />
+                    End="52.9365089225609,49.1273317558847" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12833,38 +12890,38 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task_QuickenLoan.Paths[keep]"
-          TopLeft="171.730161099627,313.024851736719">
+          Id="Package\Data Flow Task_QuickenLoan.Paths[Case1]"
+          TopLeft="241.746034895512,327.155286885518">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="132.111115599855,64.5403754392128"
+              EndConnector="62.0952418039704,50.4099402904131"
               Start="0,0"
-              End="132.111115599855,57.0403754392128">
+              End="62.0952418039704,42.9099402904131">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.2564606788086" />
+                    End="0,25.8806117165779" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.2564606788086"
-                    Point2="0,38.2564606788086"
-                    Point3="4,38.2564606788086" />
+                    Point1="0,25.8806117165779"
+                    Point2="0,29.8806117165779"
+                    Point3="4,29.8806117165779" />
                   <mssgle:LineSegment
-                    End="128.111115599855,38.2564606788086" />
+                    End="58.0952418039704,29.8806117165779" />
                   <mssgle:CubicBezierSegment
-                    Point1="128.111115599855,38.2564606788086"
-                    Point2="132.111115599855,38.2564606788086"
-                    Point3="132.111115599855,42.2564606788086" />
+                    Point1="58.0952418039704,29.8806117165779"
+                    Point2="62.0952418039704,29.8806117165779"
+                    Point3="62.0952418039704,33.8806117165779" />
                   <mssgle:LineSegment
-                    End="132.111115599855,57.0403754392128" />
+                    End="62.0952418039704,42.9099402904131" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="55.0179601436774,43.2564606788086,22.0751953125,11.609375"
+              BoundingBox="17.3945349644852,34.8806117165779,27.306171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
