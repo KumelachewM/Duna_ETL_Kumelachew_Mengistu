@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_QuickenLoan"
   DTS:PackageType="5"
-  DTS:VersionBuild="242"
-  DTS:VersionGUID="{D34C282F-9171-4878-9CBB-3DDEE6F4F0AC}">
+  DTS:VersionBuild="264"
+  DTS:VersionGUID="{40F13185-D11A-435A-8F55-6E107F6C169E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -116,6 +116,8 @@ END</DTS:VariableValue>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{43ADE350-005A-4263-A658-61E3F5EC9979}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varMaxLastModifiedDate]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varMaxLastModifiedDate">
@@ -151,7 +153,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 8:51:13 PM</DTS:VariableValue>
+        DTS:DataType="7">9/11/2020 7:17:48 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -206,7 +208,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/10/2020 8:51:13 PM</DTS:VariableValue>
+        DTS:DataType="7">9/11/2020 7:17:48 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -355,12 +357,12 @@ END</DTS:VariableValue>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Case1]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[keep]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case1"
+                  name="keep"
                   synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -11431,7 +11433,7 @@ where [refTable].[MarketSourceCode] = ?</property>
               refId="Package\Data Flow Task_QuickenLoan.Paths[Case1]"
               endId="Package\Data Flow Task_QuickenLoan\Row Count.Inputs[Row Count Input 1]"
               name="Case1"
-              startId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[Case1]" />
+              startId="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load.Outputs[keep]" />
             <path
               refId="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output]"
               endId="Package\Data Flow Task_QuickenLoan\MarketSourceLookup.Inputs[Lookup Input]"
@@ -11524,7 +11526,7 @@ where [refTable].[MarketSourceCode] = ?</property>
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="6"
-            SQLTask:DtsVariableName="User::varLastModifiedDate"
+            SQLTask:DtsVariableName="User::varMaxLastModifiedDate"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="7"
             SQLTask:ParameterSize="-1" />
@@ -11563,6 +11565,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\Execute SQL Task_Delete_QuickenLoan"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{31F5DBE6-7A8C-4E69-A576-6DC7FA5E4EB4}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11615,19 +11618,19 @@ where [refTable].[MarketSourceCode] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6CA9C0A2-0EA3-4BF3-B811-EBC92A4E5657}"
-      DTS:From="Package\Execute SQL Task_Delete_QuickenLoan"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\ESQL_Task_LastModifiedDate" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{59774036-7D0F-4472-9063-B0FB6C7A4D0A}"
+      DTS:DTSID="{1B21D42A-BCE7-411E-AC18-CA665D03D19E}"
       DTS:From="Package\ESQL_Task_LastModifiedDate"
       DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
+      DTS:ObjectName="Constraint"
       DTS:To="Package\Data Flow Task_QuickenLoan" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6B3334F8-C767-4787-BA89-D06F99C40A60}"
+      DTS:From="Package\Execute SQL Task_Delete_QuickenLoan"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\ESQL_Task_LastModifiedDate" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -11901,6 +11904,7 @@ using System.Runtime.CompilerServices;
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -12113,12 +12117,12 @@ namespace ST_718b55d4abb94e7db24a769abff189fa
               <ProjectItem
                 Name="Project"
                 Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
   <msb:PropertyGroup>
-    <msb:Language>msBuild</msb:Language>
     <msb:CodeName>ST_718b55d4abb94e7db24a769abff189fa</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_718b55d4abb94e7db24a769abff189fa</msb:DisplayName>
-    <msb:ProjectId>{CBAFD6BE-B144-4A6D-8BD2-60780733478D}</msb:ProjectId>
+    <msb:ProjectId>{5D01269F-45C3-4AE3-A97F-0A5575FCDA66}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_718b55d4abb94e7db24a769abff189fa.csproj" />
@@ -12239,7 +12243,7 @@ namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
               <BinaryItem
                 Name="ST_718b55d4abb94e7db24a769abff189fa.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIG9Ul8AAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAAcjIA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAF3qWl8AAAAAAAAAAOAAIiALATAAABQAAAAIAAAAAAAAcjIA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAACAyAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -12277,7 +12281,7 @@ eQDXBRAAeQAwBhAA+QAUBgEAEQGmBFcA+QCPBV0A+QDgA2QA+QBoAGkA0QD6BQEAcQCmBAYAmQCm
 BAYAIQGkAG8AIQE5BngAoQCmBH4AwQCmBAYACAAUAJgACAAYAJ0AKQBzAAUBLgALAN0ALgATAOYA
 LgAbAAUBLgAjAA4BLgArADcBLgAzADcBLgA7ADcBLgBDAA4BLgBLAD0BLgBTADcBLgBbAFQBQwBj
 AJ0ASQBzAAUBYQB7AJ0AYwBrAJ0AGwADAAEABAADAAAAlgTOAAAAAwHTAAAA8gXYAAIABAADAAIA
-BQAFAAEABgAFAAIABwAHAASAAAABAAAAgB3ggAAAAAAAADcAAAAEAAAAAAAAAAAAAACGAFsAAAAA
+BQAFAAEABgAFAAIABwAHAASAAAABAAAAhh3NogAAAAAAADcAAAAEAAAAAAAAAAAAAACGAFsAAAAA
 AA8AAAAAAAAAAAAAAI8AJgMAAAAABAAAAAAAAAAAAAAAhgD3AwAAAAAPAAAAAAAAAAAAAACPABAA
 AAAAAAAAAAABAAAA9wQAAAUAAgAAAABJbnQzMgA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVy
 Lk1hbmFnZWREVFMAdmFsdWVfXwBTVF83MThiNTVkNGFiYjk0ZTdkYjI0YTc2OWFiZmYxODlmYQBt
@@ -12316,7 +12320,7 @@ ADoAUwB0AGEAcgB0AFQAaQBtAGUAACdVAHMAZQByADoAOgB2AGEAcgBTAG0AdABwAEMAbABpAGUA
 bgB0AAAjVQBzAGUAcgA6ADoAdgBhAHIAUABhAHMAcwB3AG8AcgBkAAAvVQBzAGUAcgA6ADoAdgBh
 AHIAUwBtAHQAcABTAGUAcgB2AGUAcgBQAG8AcgB0AABxUwBUAF8ANwAxADgAYgA1ADUAZAA0AGEA
 YgBiADkANABlADcAZABiADIANABhADcANgA5AGEAYgBmAGYAMQA4ADkAZgBhAC4AUAByAG8AcABl
-AHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAitbqi2TffU2CWBC37QD/LAAEIAEBCAMg
+AHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAvSs/0P+rlECT6TiuG9QrRwAEIAEBCAMg
 AAEFIAEBEREEIAEBDgUgAQERWQsHCA4ODg4ODggSPQQgABJpBCAAEm0FIAEScRwDIAAcAyAADgUA
 AQ4dDgQAAQgOBiABARKAgQUgABKAhQUgAgEODgYgAQESgI0EIAEBAgUgAQESPQgAARKAkRGAlQUg
 ABKAmQcgAgEOEoCZCLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGElEDBhJVAwYSEAIGCAMG
@@ -12338,14 +12342,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAA
 SAAAAFhAAAAaBAAAAAAAAAAAAAAaBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAA
-AAAAvQTv/gAAAQAAAAEA4ICAHQAAAQDggIAdPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
+AAAAvQTv/gAAAQAAAAEAzaKGHQAAAQDNooYdPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
 AAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBu
 AAAAAAAAALAEegMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAVgMAAAEAMAAwADAA
 MAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBu
 AHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAA
 AABTAFQAXwA3ADEAOABiADUANQBkADQAYQBiAGIAOQA0AGUANwBkAGIAMgA0AGEANwA2ADkAYQBi
 AGYAZgAxADgAOQBmAGEAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4A
-NwA1ADUAMgAuADMAMgA5ADkAMgAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABT
+NwA1ADUAOAAuADQAMQA2ADcANwAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABT
 AFQAXwA3ADEAOABiADUANQBkADQAYQBiAGIAOQA0AGUANwBkAGIAMgA0AGEANwA2ADkAYQBiAGYA
 ZgAxADgAOQBmAGEALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAA
 AEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADIAMAAAACoAAQABAEwAZQBnAGEAbABUAHIA
@@ -12354,8 +12358,8 @@ AG0AZQAAAFMAVABfADcAMQA4AGIANQA1AGQANABhAGIAYgA5ADQAZQA3AGQAYgAyADQAYQA3ADYA
 OQBhAGIAZgBmADEAOAA5AGYAYQAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBl
 AAAAAABTAFQAXwA3ADEAOABiADUANQBkADQAYQBiAGIAOQA0AGUANwBkAGIAMgA0AGEANwA2ADkA
 YQBiAGYAZgAxADgAOQBmAGEAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAx
-AC4AMAAuADcANQA1ADIALgAzADIAOQA5ADIAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYA
-ZQByAHMAaQBvAG4AAAAxAC4AMAAuADcANQA1ADIALgAzADIAOQA5ADIAAAAAAAAAAAAAAAAAAAAA
+AC4AMAAuADcANQA1ADgALgA0ADEANgA3ADcAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYA
+ZQByAHMAaQBvAG4AAAAxAC4AMAAuADcANQA1ADgALgA0ADEANgA3ADcAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -12494,49 +12498,37 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="217.714285714286,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan"
-          TopLeft="90.555557954458,257.739137114108" />
+          TopLeft="83.3333355409122,259.434789331964" />
         <NodeLayout
           Size="178.285714285715,42.2857142857143"
           Id="Package\ESQL_Task_ETL_Log"
-          TopLeft="103.888891641005,350.434791690235" />
+          TopLeft="96.6666692274595,346.478269848571" />
         <NodeLayout
           Size="218.857142857143,42.2857142857143"
           Id="Package\ESQL_Task_LastModifiedDate"
-          TopLeft="78.8888909787307,178.608700280829" />
+          TopLeft="78.8888909787306,170.130439191549" />
         <NodeLayout
           Size="265.714285714286,42.2857142857143"
           Id="Package\Execute SQL Task_Delete_QuickenLoan"
-          TopLeft="38.8888899190929,75.739132397567" />
+          TopLeft="55.0000014570025,72.9130453678071" />
         <NodeLayout
           Size="196,42.2857142857143"
           Id="Package\GetMaxLastModifiedDate"
-          TopLeft="0.555555570272148,19.7826092083196" />
+          TopLeft="567.222237248479,59.9130450309111" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="171.746032776236,118.024846683281">
+          TopLeft="190.253970402679,212.416153477263">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.5714296310663,60.583853597548"
+              EndConnector="0,47.0186358547008"
               Start="0,0"
-              End="16.5714296310663,53.083853597548">
+              End="0,39.5186358547008">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.291926798774" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.291926798774"
-                    Point2="0,30.291926798774"
-                    Point3="4,30.291926798774" />
-                  <mssgle:LineSegment
-                    End="12.5714296310663,30.291926798774" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.5714296310663,30.291926798774"
-                    Point2="16.5714296310663,30.291926798774"
-                    Point3="16.5714296310663,34.291926798774" />
-                  <mssgle:LineSegment
-                    End="16.5714296310663,53.083853597548" />
+                    End="0,39.5186358547008" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12546,31 +12538,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="188.317462407302,220.894414566544">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="188.087303360724,115.198759653521">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.0952384042988,36.8447225475647"
+              EndConnector="0,54.9316795380277"
               Start="0,0"
-              End="11.0952384042988,29.3447225475647">
+              End="0,47.4316795380277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.4223612737824" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.4223612737824"
-                    Point2="0,18.4223612737824"
-                    Point3="4,18.4223612737824" />
-                  <mssgle:LineSegment
-                    End="7.09523840429878,18.4223612737824" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.09523840429878,18.4223612737824"
-                    Point2="11.0952384042988,18.4223612737824"
-                    Point3="11.0952384042988,22.4223612737824" />
-                  <mssgle:LineSegment
-                    End="11.0952384042988,29.3447225475647" />
+                    End="0,47.4316795380277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12581,18 +12561,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="196.222224797731,300.024851399823">
+          TopLeft="189.000002384186,301.720503617678">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.4099402904129"
+              EndConnector="0,44.7577662308927"
               Start="0,0"
-              End="0,42.9099402904129">
+              End="0,37.2577662308927">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.9099402904129" />
+                    End="0,37.2577662308927" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12672,37 +12652,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163.428571428572,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\Derived Column 1"
-          TopLeft="704.444463105849,67.8260887142394" />
-        <NodeLayout
-          Size="240,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance"
-          TopLeft="387.777788050381,179.173917686781" />
-        <NodeLayout
-          Size="214.285714285715,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\MortgageInsuranceCompany"
-          TopLeft="81.6666688300936,185.956526558205" />
-        <NodeLayout
-          Size="177.714285714286,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\MarketSourceLookup"
-          TopLeft="704.714304125498,180.869569904637" />
+          Size="245.714285714286,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load"
+          TopLeft="60.5555571597301,289.956529253372" />
         <NodeLayout
           Size="229.142857142858,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan"
           TopLeft="133.333336865461,70.6521757439991" />
         <NodeLayout
-          Size="130.857142857143,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\Row Count"
-          TopLeft="258.888895747101,377.565227175931" />
+          Size="163.428571428572,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\Derived Column 1"
+          TopLeft="704.444463105849,67.8260887142394" />
         <NodeLayout
           Size="171.428571428572,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan\OLE DB Destination"
-          TopLeft="482.777790567032,279.217398540285" />
+          TopLeft="626.666683267675,287.695659629565" />
+        <NodeLayout
+          Size="177.714285714286,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\MarketSourceLookup"
+          TopLeft="704.714304125498,180.869569904637" />
+        <NodeLayout
+          Size="130.857142857143,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\Row Count"
+          TopLeft="393.333343753106,291.086964065276" />
+        <NodeLayout
+          Size="240,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance"
+          TopLeft="387.777788050381,179.173917686781" />
         <NodeLayout
           Size="155.428571428572,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan\Conditional Split"
           TopLeft="466.111123458839,67.5900630785458" />
+        <NodeLayout
+          Size="214.285714285715,42.2857142857143"
+          Id="Package\Data Flow Task_QuickenLoan\MortgageInsuranceCompany"
+          TopLeft="81.6666688300936,185.956526558205" />
         <EdgeLayout
           Id="Package\Data Flow Task_QuickenLoan.Paths[Salesforce Source Output]"
           TopLeft="362.476194008318,90.2639765541296">
@@ -12727,30 +12711,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task_QuickenLoan.Paths[Row Count Output 1]"
-          TopLeft="324.317467175673,377.565227175931">
+          TopLeft="524.190486610249,310.534168990278">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="244.174609105645,-56.0621143499326"
+              EndConnector="102.476196657426,0"
               Start="0,0"
-              End="244.174609105645,-48.5621143499326">
+              End="94.9761966574262,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-24.0310571749663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-24.0310571749663"
-                    Point2="0,-28.0310571749663"
-                    Point3="4,-28.0310571749663" />
-                  <mssgle:LineSegment
-                    End="240.174609105645,-28.0310571749663" />
-                  <mssgle:CubicBezierSegment
-                    Point1="240.174609105645,-28.0310571749663"
-                    Point2="244.174609105645,-28.0310571749663"
-                    Point3="244.174609105645,-32.0310571749663" />
-                  <mssgle:LineSegment
-                    End="244.174609105645,-48.5621143499326" />
+                    End="94.9761966574262,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12803,7 +12775,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="26.2514075467193,5,22.901953125,11.2822265625"
+              BoundingBox="26.2514075467194,5,22.901953125,11.2822265625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -12821,6 +12793,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-84.3254049345728,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output1]"
+          TopLeft="186.111112994912,228.242240843919">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.7142884094526"
+              Start="0,0"
+              End="0,54.2142884094526">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.2142884094526" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12851,77 +12845,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="245.714285714286,42.2857142857143"
-          Id="Package\Data Flow Task_QuickenLoan\Conditional Split_Incremental_Load"
-          TopLeft="118.888892038369,284.869572599804" />
-        <EdgeLayout
-          Id="Package\Data Flow Task_QuickenLoan.Paths[Derived Column Output1]"
-          TopLeft="188.809525972951,228.242240843919">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.9365089225609,56.6273317558847"
-              Start="0,0"
-              End="52.9365089225609,49.1273317558847">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.3136658779424" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.3136658779424"
-                    Point2="0,28.3136658779424"
-                    Point3="4,28.3136658779424" />
-                  <mssgle:LineSegment
-                    End="48.9365089225609,28.3136658779424" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.9365089225609,28.3136658779424"
-                    Point2="52.9365089225609,28.3136658779424"
-                    Point3="52.9365089225609,32.3136658779424" />
-                  <mssgle:LineSegment
-                    End="52.9365089225609,49.1273317558847" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task_QuickenLoan.Paths[Case1]"
-          TopLeft="241.746034895512,327.155286885518">
+          TopLeft="306.269842874016,311.664603802181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="62.0952418039704,50.4099402904131"
+              EndConnector="87.0635008790903,0"
               Start="0,0"
-              End="62.0952418039704,42.9099402904131">
+              End="79.5635008790903,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.8806117165779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.8806117165779"
-                    Point2="0,29.8806117165779"
-                    Point3="4,29.8806117165779" />
-                  <mssgle:LineSegment
-                    End="58.0952418039704,29.8806117165779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.0952418039704,29.8806117165779"
-                    Point2="62.0952418039704,29.8806117165779"
-                    Point3="62.0952418039704,33.8806117165779" />
-                  <mssgle:LineSegment
-                    End="62.0952418039704,42.9099402904131" />
+                    End="79.5635008790903,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.3945349644852,34.8806117165779,27.306171875,9.5537109375"
+              BoundingBox="28.7441527832951,5,22.0751953125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -12929,7 +12873,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance">
+    design-time-name="Package\Data Flow Task_QuickenLoan\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12965,7 +12909,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task_QuickenLoan\OLE DB Destination">
+    design-time-name="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
