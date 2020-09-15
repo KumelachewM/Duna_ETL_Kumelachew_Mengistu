@@ -11,36 +11,10 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_LendingQB"
   DTS:PackageType="5"
-  DTS:VersionBuild="207"
-  DTS:VersionGUID="{33F9DF10-BF82-4C95-87FA-9DDD3E4C2AEF}">
+  DTS:VersionBuild="211"
+  DTS:VersionGUID="{632747B1-5EAE-4293-B32D-6882CF33415F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.QLSSISLOG]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{C66B7960-E2B4-4462-B133-1BA4ABB478D2}"
-      DTS:ObjectName="DESKTOP-2TFJGDL\.QLSSISLOG">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DESKTOP2TFJGDLQLSSISLOG_ConnectionString]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-2TFJGDL\;Initial Catalog=QLSSISLOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{EA0866E2-AFC5-42DE-A6CB-534F63DD1D71}"
-      DTS:ObjectName="DESKTOP-2TFJGDL\.STGQL">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::DESKTOP2TFJGDLSTGQL_ConnectionString]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-2TFJGDL\;Initial Catalog=STGQL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -140,7 +114,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/11/2020 1:33:14 AM</DTS:VariableValue>
+        DTS:DataType="7">9/14/2020 9:12:30 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -195,7 +169,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/11/2020 1:33:14 AM</DTS:VariableValue>
+        DTS:DataType="7">9/14/2020 9:12:30 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -294,8 +268,8 @@ where [refTable].[OfficeID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task_LendingQB\ChannelLookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
+                  connectionManagerID="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-2TFJGDL_.STGQL]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -952,8 +926,8 @@ where [refTable].[OfficeID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task_LendingQB\Fuzzy Lookup_MortgageInsurance.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
+                  connectionManagerID="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-2TFJGDL_.STGQL]"
                   description="Microsoft SQL Server connection and database in which the fuzzy lookup reference table is located and where the fuzzy match index table will be stored and accessed."
                   name="OleDbConnection" />
               </connections>
@@ -14791,8 +14765,8 @@ where [refTable].[MarketSourceCode] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task_LendingQB\MarketSourceLookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
+                  connectionManagerID="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-2TFJGDL_.STGQL]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -19195,8 +19169,8 @@ where [refTable].[MarketSourceCode] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task_LendingQB\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-2TFJGDL\.STGQL]"
+                  connectionManagerID="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-2TFJGDL_.STGQL]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -22941,11 +22915,11 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ESQL_Task_ETL_Log"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{C66B7960-E2B4-4462-B133-1BA4ABB478D2}"
+          SQLTask:Connection="{4A304A88-4253-4EBC-936F-2915758B0E07}"
           SQLTask:SqlStatementSource=" INSERT INTO  [QL_Kumelachew_Mengistu_ETL_Log]      (   &#xA; [PackageID]&#xA;      ,[PackageName]&#xA;      ,[SourceName]&#xA;      ,[RunTime]&#xA;      ,[RunBy]&#xA;      ,[NumberOfRowInserted]&#xA;      ,[MaxLastModifiedDate]&#xA;)&#xA;VALUES&#xA;(&#xA;?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;)&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -23001,11 +22975,11 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ESQL_Task_LastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{EA0866E2-AFC5-42DE-A6CB-534F63DD1D71}"
+          SQLTask:Connection="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}"
           SQLTask:SqlStatementSource="SELECT MAX(lastModifiedDate) as MaxLastModifiedDate&#xA;FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;Where SourceName = ?"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -23029,11 +23003,11 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task_Delete_LendingQB"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{EA0866E2-AFC5-42DE-A6CB-534F63DD1D71}"
+          SQLTask:Connection="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}"
           SQLTask:SqlStatementSource="DELETE FROM [dbo].[Stg_kumelachew_Mengistu_QL]&#xA;WHERE SourceName ='LendingQB'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -23047,7 +23021,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GetMaxLastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -23130,7 +23104,7 @@ where [refTable].[MarketSourceCode] = ?</property>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{C66B7960-E2B4-4462-B133-1BA4ABB478D2}"
+              SQLTask:Connection="{4A304A88-4253-4EBC-936F-2915758B0E07}"
               SQLTask:SqlStatementSource="INSERT INTO [dbo].[Quicken_Loans_ETL_Error_Log](PackageID,PackageName,SourceName,Loaddate,RunBy,ErrorCode,ErrorDescription)&#xA;Values&#xA;(&#xA;  ?   &#xA;, ?    &#xA;, ?   &#xA;, ?   &#xA;,?&#xA;,?&#xA;,?&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -23194,6 +23168,15 @@ where [refTable].[MarketSourceCode] = ?</property>
               Language="CSharp"
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -23313,35 +23296,6 @@ where [refTable].[MarketSourceCode] = ?</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
-    "ings")]
-
-namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_718b55d4abb94e7db24a769abff189fa.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -23590,6 +23544,35 @@ namespace ST_718b55d4abb94e7db24a769abff189fa
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
+    "ings")]
+
+namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -23619,15 +23602,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -23977,7 +23951,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -24017,9 +23991,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24053,7 +24025,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="201.142857142858,42.2857142857143"
           Id="Package\Data Flow Task_LendingQB\OData Source_LendingQB"
-          TopLeft="42.7777789110018,49.7391317237753" />
+          TopLeft="44.4444456218201,44.6521750702073" />
         <NodeLayout
           Size="154.285714285715,42.2857142857143"
           Id="Package\Data Flow Task_LendingQB\Derived Column"
@@ -24364,30 +24336,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task_LendingQB.Paths[Output]"
-          TopLeft="243.920636053859,70.8819888666324">
+          TopLeft="245.587302764677,62.2857149595059">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.4127050501542,-12.1055911606851"
+              EndConnector="47.7460383393358,0"
               Start="0,0"
-              End="41.9127050501542,-12.1055911606851">
+              End="40.2460383393358,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="20.7063525250771,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.7063525250771,0"
-                    Point2="24.7063525250771,0"
-                    Point3="24.7063525250771,-4" />
-                  <mssgle:LineSegment
-                    End="24.7063525250771,-8.10559116068511" />
-                  <mssgle:CubicBezierSegment
-                    Point1="24.7063525250771,-8.10559116068511"
-                    Point2="24.7063525250771,-12.1055911606851"
-                    Point3="28.7063525250771,-12.1055911606851" />
-                  <mssgle:LineSegment
-                    End="41.9127050501542,-12.1055911606851" />
+                    End="40.2460383393358,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -24418,7 +24378,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -24428,7 +24388,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -24454,7 +24414,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -24464,7 +24424,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
