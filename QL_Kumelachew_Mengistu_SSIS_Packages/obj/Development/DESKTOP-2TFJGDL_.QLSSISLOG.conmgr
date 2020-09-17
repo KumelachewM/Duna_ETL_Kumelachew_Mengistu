@@ -3,6 +3,8 @@
   DTS:ObjectName="DESKTOP-2TFJGDL_.QLSSISLOG"
   DTS:DTSID="{4A304A88-4253-4EBC-936F-2915758B0E07}"
   DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DESKTOP2TFJGDL_QLSSISLOG_ConnectionString]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="Data Source=DESKTOP-2TFJGDL\;Initial Catalog=QLSSISLOG;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />

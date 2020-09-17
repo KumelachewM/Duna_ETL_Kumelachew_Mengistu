@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Duna.database.windows.net.UberWriter.UberWriter"
+  DTS:DTSID="{580263C2-130E-43D8-9A6C-C932FA0BB849}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Retain="True"
+      DTS:ConnectionString="Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Application Name=SSIS-Pkg_Kumelachew_Mengistu_UberWriter-{580263C2-130E-43D8-9A6C-C932FA0BB849}Duna.database.windows.net.UberWriter.UberWriter;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAADxpgQL5kpWDU74Zq70+9HHtZf8ydEga0B+3c18+xYeYQAAAAAOgAAAAAIAACAAAAAsG3B93upAy2/1vkHi8xyWXtMhT2UrpgEpxWqZmp6DgoAAAAC+ENbT8fpkLUvO94oPlXq/IYHyFIl4WgmHfTbjHaHwN2Novp61ObKGvh5rG5pUys6Q44sn/Z5NBQQ5RIIxH7dOtfLJcBZpwKNTJJqT8goLAk5hECGmSVS0I+zIWhg9YKWYTV+pr7gBXHojU9gSsS9eNeDZ/xyFNdQ9LSARhZEXeEAAAAAgIsggWqclw1+XsL0HSYrhNmNp6YKF6SR6+rMi+NhqLI/JgM4lWGvZojnCvBDc6UuMWj/9jQ7HdZi2tBBQGvvT</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
