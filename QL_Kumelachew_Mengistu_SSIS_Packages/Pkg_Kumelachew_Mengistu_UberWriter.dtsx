@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_UberWriter"
   DTS:PackageType="5"
-  DTS:VersionBuild="283"
-  DTS:VersionGUID="{B8952886-A9B2-44EC-BD6D-1C7DB5006D3D}">
+  DTS:VersionBuild="295"
+  DTS:VersionGUID="{9A4A38A6-A4CF-41E9-9C04-DE2110340EF9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -83,7 +83,7 @@ END</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varLastModifiedDate">
       <DTS:VariableValue
-        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
+        DTS:DataType="7">9/17/2020 8:37:55 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -126,7 +126,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/17/2020 5:29:05 PM</DTS:VariableValue>
+        DTS:DataType="7">9/17/2020 9:01:42 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -179,7 +179,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/17/2020 5:29:05 PM</DTS:VariableValue>
+        DTS:DataType="7">9/17/2020 9:01:42 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -249,7 +249,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
               <connections>
                 <connection
                   refId="Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Connections[IDbConnection]"
-                  connectionManagerID="{580263C2-130E-43D8-9A6C-C932FA0BB849}:external"
+                  connectionManagerID="{6F7860DC-9A63-42CA-805A-53A3A4043352}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Duna.database.windows.net.UberWriter.UberWriter]"
                   description="Managed connection manager"
                   name="IDbConnection" />
@@ -2180,95 +2180,6 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split_Incremental_Load"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input].Columns[LastModifiedDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LastModifiedDate"
-                      lineageId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[LastModifiedDate]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[keep]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="keep"
-                  synchronousInputId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[LastModifiedDate]} &gt; @[User::varLastModifiedDate]</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">LastModifiedDate &gt; @[User::varLastModifiedDate]</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task_UberWriter\Derived Column 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -3180,13 +3091,13 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,128,1252)(DT_WSTR,128)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[MortgageInsuranceCompany]}</property>
+                          name="Expression">(DT_STR,128,1252)(DT_WSTR,128)([ISNULL](#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[MortgageInsuranceCompany]}) ? "Dunatek" : (DT_STR,128,1252)(DT_WSTR,128)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[MortgageInsuranceCompany]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,128,1252)(DT_WSTR,128)MortgageInsuranceCompany</property>
+                          name="FriendlyExpression">(DT_STR,128,1252)(DT_WSTR,128)(ISNULL(MortgageInsuranceCompany) ? "Dunatek" : (DT_STR,128,1252)(DT_WSTR,128)MortgageInsuranceCompany)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -4066,6 +3977,30 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_STR,255,1252)(ISNULL((DT_WSTR,255)LeadSource) ? "Dunatek" : FINDSTRING((DT_WSTR,255)LeadSource,"Dunatek ",1) &gt; 0 ? "Dunatek" : FINDSTRING((DT_WSTR,255)LeadSource,"IBX",1) &gt; 0 ? "IBX" : FINDSTRING((DT_WSTR,255)LeadSource,"Fusion",1) &gt; 0 ? "Fusion" : FINDSTRING((DT_WSTR,255)LeadSource,"Leadpoint",1) &gt; 0 ? "Leadpoint" : FINDSTRING((DT_WSTR,255)LeadSource,"HARP",1) &gt; 0 ? "HARP" : FINDSTRING((DT_WSTR,255)LeadSource,"Bills",1) &gt; 0 ? "Bills" : FINDSTRING((DT_WSTR,255)LeadSource,"VA Loan",1) &gt; 0 ? "VA Loan" : FINDSTRING((DT_WSTR,255)LeadSource,"Military",1) &gt; 0 ? "Military" : REPLACE((DT_WSTR,255)LeadSource,".com",""))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task_UberWriter\Derived Column 1.Outputs[Derived Column Output].Columns[C_Channel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Data Flow Task_UberWriter\Derived Column 1.Outputs[Derived Column Output].Columns[C_Channel]"
+                      name="C_Channel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)([RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1000" ? "CHDT" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "9999" ? "CHXR" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1001" ? "CHDA" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1002" ? "CHDB" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1003" ? "CHDC" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1004" ? "CHDD" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1005" ? "CHDE" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1006" ? "CHDF" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1007" ? "CHDG" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1008" ? "CHDH" : [RIGHT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},1) == "Z" &amp;&amp; [LEFT]((DT_WSTR,10)#{Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output].Columns[OfficeID]},4) == "1009" ? "CHDI" : "CHDZ")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)(RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1000" ? "CHDT" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "9999" ? "CHXR" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1001" ? "CHDA" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1002" ? "CHDB" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1003" ? "CHDC" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1004" ? "CHDD" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1005" ? "CHDE" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1006" ? "CHDF" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1007" ? "CHDG" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1008" ? "CHDH" : RIGHT((DT_WSTR,10)OfficeID,1) == "Z" &amp;&amp; LEFT((DT_WSTR,10)OfficeID,4) == "1009" ? "CHDI" : "CHDZ")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -7520,6 +7455,40 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                           typeConverter="tcComparisonFlagsEx">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Inputs[Fuzzy Lookup Input].Columns[C_Channel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="C_Channel"
+                      lineageId="Package\Data Flow Task_UberWriter\Derived Column 1.Outputs[Derived Column Output].Columns[C_Channel]">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Name of the reference table column with which the input column should be matched."
+                          name="JoinToReferenceColumn"
+                          state="escaped" />
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the match is a fuzzy or an exact match."
+                          name="JoinType"
+                          typeConverter="tcJoinType">2</property>
+                        <property
+                          dataType="System.Single"
+                          description="Specifies the minimum textual similarity required between input and fuzzy matched records on values in this particular join column.  Must be a floating point value between 0.0 and 1.0."
+                          name="MinSimilarity">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Specifies the comparison options for character data. The options are those supported by the FoldString function."
+                          name="FuzzyComparisonFlags"
+                          typeConverter="tcComparisonFlags">1</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Flags to FoldString that should be used when comparing whether two strings are equivalent."
+                          name="FuzzyComparisonFlagsEx"
+                          typeConverter="tcComparisonFlagsEx">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -9942,6 +9911,31 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[C_Channel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[C_Channel]"
+                      name="C_Channel">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the reference table column that is copied to the output for each match result."
+                          name="CopyFromReferenceColumn"
+                          state="escaped" />
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column from which to copy to this output column for each match."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task_UberWriter\Derived Column 1.Outputs[Derived Column Output].Columns[C_Channel]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is used to indicate confidence or similarity."
+                          name="ColumnType"
+                          typeConverter="tcColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[MarketSourceName]"
                       codePage="1252"
                       dataType="str"
@@ -11069,6 +11063,14 @@ where [refTable].[MarketSourceCode] = ?</property>
                       cachedName="C_LeadSourceType"
                       externalMetadataColumnId="Package\Data Flow Task_UberWriter\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeadSourceType]"
                       lineageId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[C_LeadSourceType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task_UberWriter\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[C_Channel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="C_Channel"
+                      externalMetadataColumnId="Package\Data Flow Task_UberWriter\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      lineageId="Package\Data Flow Task_UberWriter\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output].Columns[C_Channel]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11679,18 +11681,13 @@ where [refTable].[MarketSourceCode] = ?</property>
               name="ADO NET Source Output"
               startId="Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter.Outputs[ADO NET Source Output]" />
             <path
-              refId="Package\Data Flow Task_UberWriter.Paths[Case1]"
-              endId="Package\Data Flow Task_UberWriter\Row Count.Inputs[Row Count Input 1]"
-              name="Case1"
-              startId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Outputs[keep]" />
-            <path
               refId="Package\Data Flow Task_UberWriter.Paths[Derived Column Output]"
               endId="Package\Data Flow Task_UberWriter\MarketSourceLookup.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Data Flow Task_UberWriter\Derived Column 1.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task_UberWriter.Paths[Derived Column Output1]"
-              endId="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load.Inputs[Conditional Split Input]"
+              endId="Package\Data Flow Task_UberWriter\Row Count.Inputs[Row Count Input 1]"
               name="Derived Column Output"
               startId="Package\Data Flow Task_UberWriter\MortgageInsuranceCompany.Outputs[Derived Column Output]" />
             <path
@@ -11721,7 +11718,6 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\ESQL_Task_ETL_Log"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{4A5AD08D-3CE7-49C6-AE02-F9705619C7FB}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11771,7 +11767,7 @@ where [refTable].[MarketSourceCode] = ?</property>
             SQLTask:ParameterSize="-1" />
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="6"
-            SQLTask:DtsVariableName="User::varMaxLastModifiedDate"
+            SQLTask:DtsVariableName="User::varLastModifiedDate"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="7"
             SQLTask:ParameterSize="-1" />
@@ -11813,7 +11809,6 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:refId="Package\Execute SQL Task_Delete_UberWriter"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{5CF9ED8A-6895-4FC0-84DD-8C5B8CA48660}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -11972,6 +11967,7 @@ where [refTable].[MarketSourceCode] = ?</property>
           DTS:refId="Package.EventHandlers[OnError]\Script Task"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
+          DTS:Disabled="True"
           DTS:DTSID="{427835A1-7D34-4DB6-A0B8-029AFD49ABC6}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
@@ -12848,7 +12844,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -12888,9 +12884,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12912,7 +12906,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package\Data Flow Task_UberWriter">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="177.714285714286,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\MarketSourceLookup"
@@ -12924,7 +12918,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="171.428571428572,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\OLE DB Destination"
-          TopLeft="659.444461913768,321.043486580732" />
+          TopLeft="559.444459264673,331.217399887868" />
         <NodeLayout
           Size="155.428571428572,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\Conditional Split"
@@ -12932,15 +12926,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="214.285714285715,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\MortgageInsuranceCompany"
-          TopLeft="82.7777799706391,241.913049747452" />
-        <NodeLayout
-          Size="245.714285714286,42.2857142857143"
-          Id="Package\Data Flow Task_UberWriter\Conditional Split_Incremental_Load"
-          TopLeft="66.6666684327304,339.695660977147" />
+          TopLeft="149.444448403369,245.869571589116" />
         <NodeLayout
           Size="130.857142857143,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\Row Count"
-          TopLeft="405.555566299107,344.217400224763" />
+          TopLeft="343.888897998832,335.173921729531" />
         <NodeLayout
           Size="216,42.2857142857143"
           Id="Package\Data Flow Task_UberWriter\ADO NET Source_UberWriter"
@@ -12951,30 +12941,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="641.111128094755,64.4347842785274" />
         <EdgeLayout
           Id="Package\Data Flow Task_UberWriter.Paths[Row Count Output 1]"
-          TopLeft="536.41270915625,365.36025736762">
+          TopLeft="474.746040855974,354.338517951557">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="123.031752757518,-23.1739136440309"
+              EndConnector="84.6984184086981,0"
               Start="0,0"
-              End="115.531752757518,-23.1739136440309">
+              End="77.1984184086981,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="57.5158763787591,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="57.5158763787591,0"
-                    Point2="61.5158763787591,0"
-                    Point3="61.5158763787591,-4" />
-                  <mssgle:LineSegment
-                    End="61.5158763787591,-19.1739136440309" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.5158763787591,-19.1739136440309"
-                    Point2="61.5158763787591,-23.1739136440309"
-                    Point3="65.5158763787591,-23.1739136440309" />
-                  <mssgle:LineSegment
-                    End="115.531752757518,-23.1739136440309" />
+                    End="77.1984184086981,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13015,7 +12993,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-139.992979502492,-17.609375,96.3827734375,11.609375"
+              BoundingBox="-139.992979502493,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -13045,52 +13023,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task_UberWriter.Paths[Fuzzy Lookup Output]"
-          TopLeft="401.6666773072,239.316775840326">
+          TopLeft="401.6666773072,239.316775840325">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-104.603183050846,23.7391310499838"
+              EndConnector="-37.9365146181163,27.695652891648"
               Start="0,0"
-              End="-97.1031830508464,23.7391310499838">
+              End="-30.4365146181163,27.695652891648">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-48.3015915254232,0" />
+                    End="-14.9682573090582,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-48.3015915254232,0"
-                    Point2="-52.3015915254232,0"
-                    Point3="-52.3015915254232,4" />
+                    Point1="-14.9682573090582,0"
+                    Point2="-18.9682573090582,0"
+                    Point3="-18.9682573090582,4" />
                   <mssgle:LineSegment
-                    End="-52.3015915254232,19.7391310499838" />
+                    End="-18.9682573090582,23.695652891648" />
                   <mssgle:CubicBezierSegment
-                    Point1="-52.3015915254232,19.7391310499838"
-                    Point2="-52.3015915254232,23.7391310499838"
-                    Point3="-56.3015915254232,23.7391310499838" />
+                    Point1="-18.9682573090582,23.695652891648"
+                    Point2="-18.9682573090582,27.695652891648"
+                    Point3="-22.9682573090582,27.695652891648" />
                   <mssgle:LineSegment
-                    End="-97.1031830508464,23.7391310499838" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task_UberWriter.Paths[Derived Column Output1]"
-          TopLeft="189.722224201685,284.198764033167">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.4968969439807"
-              Start="0,0"
-              End="0,47.9968969439807">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.9968969439807" />
+                    End="-30.4365146181163,27.695652891648" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13134,30 +13090,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task_UberWriter.Paths[Case1]"
-          TopLeft="312.380954147016,363.099387743812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="93.1746121520906,0"
-              Start="0,0"
-              End="85.6746121520906,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="85.6746121520906,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="31.7997084197953,5,22.0751953125,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Data Flow Task_UberWriter.Paths[ADO NET Source Output]"
           TopLeft="361.063495845812,79.9254673618643">
           <EdgeLayout.Curve>
@@ -13183,6 +13115,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     Point3="32.9127020699214,9.93788767144261" />
                   <mssgle:LineSegment
                     End="50.3254041398429,9.93788767144261" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task_UberWriter.Paths[Derived Column Output1]"
+          TopLeft="256.587305546227,288.15528587483">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.730163881177,47.0186358547008"
+              Start="0,0"
+              End="152.730163881177,39.5186358547008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5093179273504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5093179273504"
+                    Point2="0,23.5093179273504"
+                    Point3="4,23.5093179273504" />
+                  <mssgle:LineSegment
+                    End="148.730163881177,23.5093179273504" />
+                  <mssgle:CubicBezierSegment
+                    Point1="148.730163881177,23.5093179273504"
+                    Point2="152.730163881177,23.5093179273504"
+                    Point3="152.730163881177,27.5093179273504" />
+                  <mssgle:LineSegment
+                    End="152.730163881177,39.5186358547008" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

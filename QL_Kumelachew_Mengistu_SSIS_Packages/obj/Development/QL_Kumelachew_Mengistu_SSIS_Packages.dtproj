@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-2TFJGDL</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAA6hp1PGId/JNE2n/gdOeTPtrvKwho0VwuEGGDOfsDi5QAAAAAOgAAAAAIAACAAAACfT9zV9yOJG9PiKwW9KFZWqopkzNgr9Pq5vYMwYwH9W5AAAABocFt8YqcAi2EeXlJwdInUzvkB5TL0y/eW92iJxOKcOG7C5AWD9J3UMTQ4ki5nlr+hV8HK8eXKqxDzVF1WVQNQkh3SFOmcjyrjlRf/lClJ96uB3HB3fLFdK+Ws8A05xYpdnKjyEo9c4m5/WbgD30JazjDmCLPn3NyMEGc/BKcY378FlqMOtDr3NrE91jNQu+hAAAAA3ztJ8z5uOh2tMhB+aczf6nncJ+ozQMGlwpapqO7p8Mu8e1Bt/wSYKM9MYQcAtMyNIqZ7P9lbYSnwDkrIjMK/bw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAACP8it+4lJcuyvcagPzkWl/Oso/rCqGlK9XT3Xex2fwAAAAAAAOgAAAAAIAACAAAADPMQNcmZl/nuIBWntUIf3sYw3BWiKXPQFiaRF/PaMkI5AAAABhCiUXzd5FK6JR4FcDvp221YqB6dsw4T9mTbdKVvLeUKP0N/Yq3oABf1tCQhZQfR9Wqvihzrth648y9fw/ek0qHKKtdlb6nxLlLasaAZz/s29cEXv+fjwyx6Cy1HUoJ6P+LHLTKE935sUgIZ0yQzY2aS+1GKpBPGgy6OgO9DKuevsy/TtcDU/3reJJoe4iiv9AAAAAiBe2TMOrJd1zU46WUzOnHFAaYQem7Egh/B1nnhW6QW7OOl/zbfJM2oFCDsZeKmWnwLam/rKAtxfhhkubkW7MLg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -711,7 +711,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Application Name=SSIS-Pkg_Kumelachew_Mengistu_UberWriter-{580263C2-130E-43D8-9A6C-C932FA0BB849}Duna.database.windows.net.UberWriter.UberWriter;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Application Name=SSIS-QL_Kumelachew_Mengistu_SSIS_Packages-{6F7860DC-9A63-42CA-805A-53A3A4043352}Duna.database.windows.net.UberWriter.UberWrite;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -812,10 +812,10 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_LendingQB</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">232</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">240</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{918CFC4E-1482-40B0-9BEB-D0B362BA78D3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{11558C8F-D23F-4F2F-A372-54CC721D8543}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -829,10 +829,10 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_QuickenLoan</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">288</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">297</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E5165304-CDAC-4935-BB38-1727569051B9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{295B0EB1-D457-4B4F-AF17-4A636529382A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -846,10 +846,10 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_UberWriter</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">280</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">295</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BFC6B39F-70C2-4711-9122-3F2D6949A8EF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9A4A38A6-A4CF-41E9-9C04-DE2110340EF9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
