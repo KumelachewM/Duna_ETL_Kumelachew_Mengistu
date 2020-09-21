@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-2TFJGDL</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAADq54uTCSsRjpSlbsk/5VwZxoKePF5iMPA1jn6orM1twAAAAAAOgAAAAAIAACAAAADzuqSk3XXT0IAnksPKs10b1wQnxB4oD93FsXNE/sduM5AAAACvXazNZMO3T/Qhlgq2DTwNdvPM+ZLa3w4SsgubIwqr1nPpMhr/Blewwm7ecN4pvGuSB+bc/GZSR4UwWnOrgXVdjQySaAcV9N4/r6s3Lp6A+GHVEMzucMXhusRGORvbuqg3ilULRHMju+U/sjnqUULRHXsixqxcNyM8FPckyPJVg2QfkgopUSkNlbOlSBPfmOdAAAAAeWvZF4Q/bEoST/301YhRjIztCZPuAJJelth6WAJLgbfuzir01ZZDoGTIuOosciF0pRRBc6RLGYPsDgBp9bi2bQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAAaXtNj1ZczTEvmYgG4XhEVbAc2Udb1Jm50DQOXs4nfFgAAAAAOgAAAAAIAACAAAADFwBg50gvd8J7pGCK3PdOLHNi7emNzwSDkzKFEtIqLMJAAAAAlRrrBqKtgEYxKMkEqB93Zs+72sL0Xfe1JhC7hgpFcBsSJEQF6p9h2L+aJB6ydcmKoGnFFbVCVsoU2CbzaYA1vb3YwrlxzdYEHz179PTxQJ8uErtWDI7WvuKL4TCXyJz5Drh0FrdDa8Pgoh1PHOaabvUj0eB51scGJxC/khEI0GOwROT60hhVZk6vf6lXX7sBAAAAA898x5eNvh6XNHdlr9JGxVIaWEAD8m3HLeoXWI5Nh64oNGd6TxJakuCHK5xD3mTiDToOXW26ZNAkUz1ozWewvdw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -34,6 +34,7 @@
           <SSIS:Package SSIS:Name="Pkg_Kumelachew_Mengistu_QuickenLoan.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Kumelachew_Mengistu_UberWriter.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Pkg_Kumelachew_Mengistu_LendingPad.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Pkg_Kumelachew_Mengistu_SimpleNexus.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="OData Source_LendingQB.conmgr" />
@@ -821,21 +822,6 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.FTP Connection Manager.ConnectionString">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="CreationName">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">ftp.drivehq.com:21</SSIS:Property>
-                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-              </SSIS:Properties>
-            </SSIS:Parameter>
             <SSIS:Parameter SSIS:Name="CM.FTP Connection Manager.Retries">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
@@ -982,10 +968,10 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_UberWriter</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">299</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">298</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FEE0A004-8DEB-4B2E-813A-699C901A913F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D26D2E4E-673F-4E8A-98BE-5AE5B547B1EB}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -999,10 +985,27 @@
                 <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_LendingPad</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">333</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">357</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{5392A196-CB01-4B4A-B944-BEE223EB3A6B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8CB941F3-EECA-4AAE-8E1C-E3280DFF5B84}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Pkg_Kumelachew_Mengistu_SimpleNexus.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{1AFBB6F4-D5F2-439A-B006-34EDEEB6B026}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Pkg_Kumelachew_Mengistu_SimpleNexus</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">364</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{950DD4A9-5398-4BDD-B14B-8669E68D9C6A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

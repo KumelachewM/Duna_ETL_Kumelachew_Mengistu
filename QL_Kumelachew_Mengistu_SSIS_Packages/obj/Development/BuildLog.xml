@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Kumelachew_Mengistu_SSIS_Packages</Name>
-    <LastWriteTime>2020-09-19T01:46:28.2649811Z</LastWriteTime>
+    <LastWriteTime>2020-09-21T05:37:36.0234269Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_LendingPad.dtsx</Name>
-      <LastWriteTime>2020-09-20T06:27:05.6774776Z</LastWriteTime>
+      <LastWriteTime>2020-09-21T21:36:31.3400819Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Kumelachew_Mengistu_SimpleNexus.dtsx</Name>
+      <LastWriteTime>2020-09-21T22:15:13.2059482Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
