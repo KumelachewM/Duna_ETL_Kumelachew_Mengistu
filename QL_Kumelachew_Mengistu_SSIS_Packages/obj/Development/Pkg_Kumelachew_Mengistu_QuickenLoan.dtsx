@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_QuickenLoan"
   DTS:PackageType="5"
-  DTS:VersionBuild="299"
-  DTS:VersionGUID="{AE7AAE82-2846-4119-8C75-357AF5F2D008}">
+  DTS:VersionBuild="302"
+  DTS:VersionGUID="{779B2412-C981-4676-96AE-C477053B7AE8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -126,7 +126,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/17/2020 10:33:08 PM</DTS:VariableValue>
+        DTS:DataType="7">9/22/2020 3:33:31 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -181,7 +181,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/17/2020 10:33:08 PM</DTS:VariableValue>
+        DTS:DataType="7">9/22/2020 3:33:31 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1588,13 +1588,13 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,10,1252)([RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1000" ? "CHDT" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "9999" ? "CHXR" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1001" ? "CHDTA" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1002" ? "CHDB" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1003" ? "CHDC" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1004" ? "CHDD" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1005" ? "CHDE" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1006" ? "CHDF" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1007" ? "CHDG" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1008" ? "CHDH" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1009" ? "CHDI" : "CHDZ")</property>
+                          name="Expression">(DT_STR,10,1252)([RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1000" ? "CHDT" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "9999" ? "CHXR" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1001" ? "CHDT" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1002" ? "CHDB" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1003" ? "CHDC" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1004" ? "CHDD" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1005" ? "CHDE" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1006" ? "CHDF" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1007" ? "CHDG" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1008" ? "CHDH" : [RIGHT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},1) == "Z" &amp;&amp; [LEFT](#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[OfficeID__c]},4) == "1009" ? "CHDI" : "CHDZ")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,10,1252)(RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1000" ? "CHDT" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "9999" ? "CHXR" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1001" ? "CHDTA" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1002" ? "CHDB" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1003" ? "CHDC" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1004" ? "CHDD" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1005" ? "CHDE" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1006" ? "CHDF" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1007" ? "CHDG" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1008" ? "CHDH" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1009" ? "CHDI" : "CHDZ")</property>
+                          name="FriendlyExpression">(DT_STR,10,1252)(RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1000" ? "CHDT" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "9999" ? "CHXR" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1001" ? "CHDT" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1002" ? "CHDB" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1003" ? "CHDC" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1004" ? "CHDD" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1005" ? "CHDE" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1006" ? "CHDF" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1007" ? "CHDG" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1008" ? "CHDH" : RIGHT(OfficeID__c,1) == "Z" &amp;&amp; LEFT(OfficeID__c,4) == "1009" ? "CHDI" : "CHDZ")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -9924,7 +9924,8 @@ where [refTable].[MarketSourceCode] = ?</property>
     , UnderwriterRiskAssess__c
     , UnderwritingReceivedDate__c
   FROM Quicken_Loans__c
-  Where LastModifiedDate__c &gt; @[User::varLastModifiedDate]
+  WHERE LastModifiedDate__c &gt; @[User::varLastModifiedDate]
+
   
 
 
@@ -11483,7 +11484,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ESQL_Task_ETL_Log"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11543,7 +11544,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="ESQL_Task_MaxLastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11594,7 +11595,7 @@ where [refTable].[MarketSourceCode] = ?</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="GetMaxLastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11622,7 +11623,7 @@ where [refTable].[MarketSourceCode] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{A05C36DF-0054-4739-9C28-046F5A3C1ADB}"
+      DTS:DTSID="{B4A1B764-3795-4DFA-B5A5-3EE33124496F}"
       DTS:From="Package\ESQL_Task_MaxLastModifiedDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -11735,14 +11736,35 @@ where [refTable].[MarketSourceCode] = ?</property>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -12140,35 +12162,14 @@ namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -12495,7 +12496,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="217.714285714286,42.2857142857143"
           Id="Package\Data Flow Task_QuickenLoan"
-          TopLeft="62.7777794408203,206.304353172477" />
+          TopLeft="50.000001324547,153.17391701299" />
         <NodeLayout
           Size="178.285714285715,42.2857142857143"
           Id="Package\ESQL_Task_ETL_Log"
@@ -12503,41 +12504,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="237.714285714286,42.2857142857143"
           Id="Package\ESQL_Task_MaxLastModifiedDate"
-          TopLeft="36.1111120677286,78.0000020213743" />
+          TopLeft="53.8888903164567,32.7826095452149" />
         <NodeLayout
           Size="265.714285714286,42.2857142857143"
           Id="Package\Execute SQL Task_Delete_QuickenLoan"
-          TopLeft="318.888897336559,128.869568557054" />
+          TopLeft="301.666674658104,134.521742616574" />
         <NodeLayout
           Size="196,42.2857142857143"
           Id="Package\GetMaxLastModifiedDate"
           TopLeft="567.222237248479,59.9130450309111" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="154.968254924872,120.285716307089">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="161.777779440821,195.459631298704">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.6666673730917,86.0186368653884"
+              EndConnector="0,99.018637202284"
               Start="0,0"
-              End="16.6666673730917,78.5186368653884">
+              End="0,91.518637202284">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.0093184326942" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.0093184326942"
-                    Point2="0,43.0093184326942"
-                    Point3="4,43.0093184326942" />
-                  <mssgle:LineSegment
-                    End="12.6666673730917,43.0093184326942" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.6666673730917,43.0093184326942"
-                    Point2="16.6666673730917,43.0093184326942"
-                    Point3="16.6666673730917,47.0093184326942" />
-                  <mssgle:LineSegment
-                    End="16.6666673730917,78.5186368653884" />
+                    End="0,91.518637202284" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12547,19 +12536,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="168.166668498958,248.590067458191">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="172.7460331736,75.0683238309292">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.8882010427967"
+              EndConnector="-13.8888889919097,78.1055931820605"
               Start="0,0"
-              End="0,38.3882010427967">
+              End="-13.8888889919097,70.6055931820605">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.3882010427967" />
+                    End="0,35.0527965910303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.0527965910303"
+                    Point2="0,39.0527965910303"
+                    Point3="-4,39.0527965910303" />
+                  <mssgle:LineSegment
+                    End="-9.88888899190965,39.0527965910303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.88888899190965,39.0527965910303"
+                    Point2="-13.8888889919097,39.0527965910303"
+                    Point3="-13.8888889919097,43.0527965910303" />
+                  <mssgle:LineSegment
+                    End="-13.8888889919097,70.6055931820605" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

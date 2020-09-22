@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_SimpleNexus"
   DTS:PackageType="5"
-  DTS:VersionBuild="386"
-  DTS:VersionGUID="{8437B434-0DF9-478F-96BD-E43568671F1F}">
+  DTS:VersionBuild="388"
+  DTS:VersionGUID="{F5C67870-1782-4F4E-B83E-B8362B2F879F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varArchivedFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\SimpleNexus_2020-09-22-02-08.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\SimpleNexus_2020-09-22-03-13.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -195,7 +195,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/22/2020 2:08:40 AM</DTS:VariableValue>
+        DTS:DataType="7">9/22/2020 3:13:53 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -248,7 +248,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/22/2020 2:08:40 AM</DTS:VariableValue>
+        DTS:DataType="7">9/22/2020 3:13:53 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -15983,28 +15983,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Destination"
           TopLeft="565.555570537673,389.434792700923" />
         <EdgeLayout
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Row Count Output 1]"
-          TopLeft="468.634929582975,406.621128002116">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.9206409546983,0"
-              Start="0,0"
-              End="89.4206409546983,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="89.4206409546983,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Lookup Match Output]"
           TopLeft="769.71430584741,255.142863206981">
           <EdgeLayout.Curve>
@@ -16160,6 +16138,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="101.039689456765,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Row Count Output 1]"
+          TopLeft="468.634929582975,406.621128002116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.9206409546981,0"
+              Start="0,0"
+              End="89.4206409546981,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.4206409546981,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

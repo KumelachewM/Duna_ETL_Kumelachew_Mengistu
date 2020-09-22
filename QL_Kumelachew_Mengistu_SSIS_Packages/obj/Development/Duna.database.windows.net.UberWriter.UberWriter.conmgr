@@ -11,7 +11,7 @@
       DTS:ConnectionString="Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Persist Security Info=True;Application Name=SSIS-Quicken_Loans_Project-{FC0738E7-8C99-437A-835C-D5310C23BAFF}Duna.database.windows.net.UberWriter.UberWriter;">
       <DTS:Password
         DTS:Name="password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAAeCODgawNbg0KzErFGR7CX6Vg0Tl6QRRBcVmho8BFztAAAAAAOgAAAAAIAACAAAADGae6s8QZ4T48R77OdVWUN5sP0cEt8uTu6Hc6DrjAah4AAAADkC4UQrwdByyfea/i3/unKQNvzcdsiGDr24U5aKiX4Rjk6CoOfP4f8vQGGEF6DOeoBAHLdpvLbz5uggGtu6Q7RRIjRJ5gVBF9qEKVLelRXhjLcods/8Fh+wN7OwIrgHXF0Sg56UtpI5Ha1oplUch9Or0G63m/x2w4FbXNjpDq5cEAAAADgbPsRLgduHZIDKmhOoCJpVu9+0/FkzaXdoEBPmneAXjtN7grTrSxbiS6p2pX21h9YJxzmAmSnrZpMi2yDyk2p</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAB9fsiAjro3ErO/z2HXn2TRNW/p4pi+D4osB3KmiK0yQgAAAAAOgAAAAAIAACAAAADygyoJRs7rlr6Eq+tbSemOwAHwMQrr24gmM2w1Oy2P/YAAAAB5Ygi08Kdx6xwrAr9TZcgmQMChHXvG7SjkPk3v2KlSJHBczpMbjx4zfWlQSTweZ9O3tUubbMXrPYhAb2CD8SgE8r/PtTuJUDaYWRr+PQeQJechvYtbA+z73R9wxPFOkgXYLXNlt/mXliB/deDyQmWVtlVTUna+6E46TWRySlA410AAAABgABOVS6nmllvgrYhQ7n/7IjHItQq684sB6kOti4m5cJKjDZQckKCt85LVfBdH1sHvzXKOl/DFhUC737RcRFyA</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
