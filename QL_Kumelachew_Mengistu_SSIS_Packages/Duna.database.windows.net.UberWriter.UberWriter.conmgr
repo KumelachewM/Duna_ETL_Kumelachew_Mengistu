@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:DelayValidation="True"
   DTS:ObjectName="Duna.database.windows.net.UberWriter.UberWriter"
   DTS:DTSID="{6F7860DC-9A63-42CA-805A-53A3A4043352}"
   DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::DunaDatabaseWindowsNetUberWriterUberWriter_ConnectionString]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Application Name=SSIS-QL_Kumelachew_Mengistu_SSIS_Packages-{6F7860DC-9A63-42CA-805A-53A3A4043352}Duna.database.windows.net.UberWriter.UberWrite;">
+      DTS:ConnectionString="Data Source=Duna.database.windows.net;User ID=UberWriter;Initial Catalog=UberWriter;Persist Security Info=True;Application Name=SSIS-Quicken_Loans_Project-{FC0738E7-8C99-437A-835C-D5310C23BAFF}Duna.database.windows.net.UberWriter.UberWriter;">
       <DTS:Password
-        DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAABsqIgpgeqER16ADzaWKmwvItX3aitTE8ijL4KHGzQavQAAAAAOgAAAAAIAACAAAACLg0ZKLJeJ2B1UrbhYHuHQp1L2R31QGnZ3nMVGwUpzn4AAAADRRcgSG4KUBDxZt9GSKxdee6rHD8USOqPfm0hy4+gT5GFDmGw4EQPsOKEA2jJ1C98OoXdjL0o+f1zi8d6gHGa/46/S/H6Wj9KwIxD33d6Pi1otxOs0SdL5dHMVVF+xRBGliqANyH3bJ581EqTy2YM19JWyYkKkZu8ZSQ4KYSq1sUAAAAAh5wq1RrvPsgamakFs4mnC4v6B+/kOEVKARxdWEE72qDQ0bxsJQsSAqOmtOE9uGYw6Pa1A3py9SCUwC0T0oTb8</DTS:Password>
+        DTS:Name="password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAAxnuWyIp24rbRsp/i+CBvmP0501QXIIaMN1FRdgClTwAAAAAAOgAAAAAIAACAAAABX3dO0a7VPEBUU9+gPcNftF/D4DKpTvMJOoVM/qz0OQ4AAAABSd73kAUA8KSFznsbGXB7nitCUjNlKBUnyFQ7Aom3BHyqDOJCEVmivn3BCpktq8sYZOGea7tuxCV/RDlZwTnXMacyEfrhTlmUZBlU4PWf61Rg0BsZ8SzEkUc6pTHW6fV1YwYVD0aBXW3u2GkHjxXdyVUdFW0ANRysHBUbAKLO67UAAAACfla7xuB1FlUAkXuBWJnWtbEmr5I1+Rhv3ypUPJ8KpXsiFWRwkr3oFFxJDXmwEWetLzoXeXNvxCQs9UY3oVPot</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

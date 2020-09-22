@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_LendingPad"
   DTS:PackageType="5"
-  DTS:VersionBuild="358"
-  DTS:VersionGUID="{62302176-9435-4F2F-B1B7-C4C6F784B8F1}">
+  DTS:VersionBuild="359"
+  DTS:VersionGUID="{72506C2F-3C64-46F8-A775-EA9CFD7E200B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varArchivedFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\LendingPad_2020-09-21-19-45.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\LendingPad_2020-09-21-19-54.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -183,7 +183,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/21/2020 7:45:15 PM</DTS:VariableValue>
+        DTS:DataType="7">9/21/2020 7:54:23 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -236,7 +236,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/21/2020 7:45:15 PM</DTS:VariableValue>
+        DTS:DataType="7">9/21/2020 7:54:23 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
