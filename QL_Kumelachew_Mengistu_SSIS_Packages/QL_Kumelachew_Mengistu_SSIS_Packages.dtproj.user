@@ -8,8 +8,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <ServerName />
-        <PathOnServer />
+        <ServerName>DESKTOP-2TFJGDL</ServerName>
+        <PathOnServer>/SSISDB/QL_Kumelachew_Mengistu_ETL/QL_Kumelachew_Mengistu_SSIS_Packages</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

@@ -2,33 +2,38 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>QL_Kumelachew_Mengistu_SSIS_Packages</Name>
-    <LastWriteTime>2020-09-22T05:53:27.1476682Z</LastWriteTime>
+    <LastWriteTime>2020-09-24T23:49:44.6225517Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_LendingQB.dtsx</Name>
-      <LastWriteTime>2020-09-18T02:28:23.9892128Z</LastWriteTime>
+      <LastWriteTime>2020-09-25T00:24:16.5543373Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_QuickenLoan.dtsx</Name>
-      <LastWriteTime>2020-09-22T07:33:27.5867026Z</LastWriteTime>
+      <LastWriteTime>2020-09-24T00:55:06.6418616Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_UberWriter.dtsx</Name>
-      <LastWriteTime>2020-09-22T00:03:18.3129564Z</LastWriteTime>
+      <LastWriteTime>2020-09-24T00:55:06.7206702Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_LendingPad.dtsx</Name>
-      <LastWriteTime>2020-09-22T00:03:18.3558405Z</LastWriteTime>
+      <LastWriteTime>2020-09-25T00:30:44.8271572Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Pkg_Kumelachew_Mengistu_SimpleNexus.dtsx</Name>
-      <LastWriteTime>2020-09-22T07:13:52.9723674Z</LastWriteTime>
+      <LastWriteTime>2020-09-24T05:16:29.6481984Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Pkg_Kumelachew_Mengist_Quicken_Loans_Master.dtsx</Name>
+      <LastWriteTime>2020-09-25T00:16:12.4383628Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

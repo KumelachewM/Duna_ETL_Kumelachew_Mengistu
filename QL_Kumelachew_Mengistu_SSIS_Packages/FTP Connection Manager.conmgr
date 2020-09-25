@@ -14,7 +14,7 @@
         DTS:UsePassiveMode="True">
         <DTS:Property
           DTS:Name="ServerPassword"
-          Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1EwBr+EuiUimxp7SiZpSTwAAAAACAAAAAAAQZgAAAAEAACAAAAC97IsU39Zuhp7TmBn4xkjmCq+ahMW+1eh4WuczS2OsowAAAAAOgAAAAAIAACAAAAAls3EmClvjl/KO20D6AVj+lCGrXYocGt0hCWy+RSsN65AAAACDzYrkgPU8inDqnOKXfVOLJFg+75Lz7aHCKraxH8UrHIEywpeECtjfZj+kw/riC5UrAp+J5TxRmpsm23rSWtSS3wC52xpyBKQuw/VDDe8enjWzCmQNmXGSU+bUNnkw4BWawrHBm4eIIcz3ACW0zuuNEsvQ6k3hS9W8uVIGRLv0ZUojw1XNGdN+P8iKDfT/ry1AAAAArJlymsTnr3oHXetLN92DkaO4ohINPRztRQDvldOLaKhcMQfBIWZjitCJSwQPHl/zYbyqh1JEJ/01x4YnjVqNtw==</DTS:Property>
+          Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkIOYGkRaLUGVD/1O09t+ewAAAAACAAAAAAAQZgAAAAEAACAAAAAI/iYL8ZIbY/VI+y5snfc3iwuF+UT9v+9TTVeQXb5h1QAAAAAOgAAAAAIAACAAAABjPC7Eb4Llo8SJxAGLtRc+ytFsgd6mPAfTA+jyrozfXpAAAACQ5jBOKW19MW2rjlWLAJyPt4gZfCplUYbtvppKxZc4uHjXea4RveCV1F2MsYDMXcKFVvprnpfuZ0QaasTVqMeCcQd686a6yXA6leIJ40t0JMWWcTxvJouAUXdjTxkmJihzft47bqytvSQDg43r4L84PbThJjZ864KIHhxuZa1N8sELVIGs2pk1dj8YEQm6IaVAAAAAOcOjamh3mommGAoccklqktI5eOGcxrN2yunQOmdZtGR0rzzsqlQWoyaRcKGBbhb4YVgjSDLnbBcI/izuwtciDQ==</DTS:Property>
       </DTS:FtpConnection>
     </DTS:ConnectionManager>
   </DTS:ObjectData>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_SimpleNexus"
   DTS:PackageType="5"
-  DTS:VersionBuild="388"
-  DTS:VersionGUID="{F5C67870-1782-4F4E-B83E-B8362B2F879F}">
+  DTS:VersionBuild="427"
+  DTS:VersionGUID="{CFBA976C-0979-4C68-8B1B-91D5D56FD108}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +25,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="varArchivedFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\SimpleNexus_2020-09-22-03-13.zip</DTS:VariableValue>
+        DTS:DataType="8">C:\QuickenLoan\ArchivedFolder\SimpleNexus_2020-09-24-01-16.zip</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -50,12 +50,12 @@
       DTS:CreationName=""
       DTS:DTSID="{FE51F670-4C5B-4CD9-BAF2-A719B59AEBAD}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;C:\\QuickenLoan\\UnZipedFtpFile\\SimpleNexus.bak\\SimpleNexus.bak&quot;"
+      DTS:Expression="&quot;C:\\QuickenLoan\\UnZipedFtpFile\\SimpleNexus.bak&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varDeleteSimpleNexusbak">
       <DTS:VariableValue
-        DTS:DataType="8">C:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak\SimpleNexus.bak</DTS:VariableValue>
+        DTS:DataType="8">C:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -72,13 +72,11 @@ WHERE SourceName ='SimpleNexus'</DTS:VariableValue>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{4FF8DDB6-E2D5-4FA6-B61C-337611324700}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;C:\\QuickenLoan\\UnZipedFtpFile\\SimpleNexus.bak&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varDest">
       <DTS:VariableValue
-        DTS:DataType="8">C:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak</DTS:VariableValue>
+        DTS:DataType="8">C:\QuickenLoan\UnZipedFtpFile\</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -195,7 +193,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">9/22/2020 3:13:53 AM</DTS:VariableValue>
+        DTS:DataType="7">9/24/2020 1:16:29 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -248,7 +246,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">9/22/2020 3:13:53 AM</DTS:VariableValue>
+        DTS:DataType="7">9/24/2020 1:16:29 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -281,6 +279,25 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task_Delete_SimpleNexus"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{0D6A85A7-81A8-4C68-8A14-9A4B9837B573}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task_Delete_SimpleNexus"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::varDeleteSTGTable" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\FELC_Unzip Rename and Move"
       DTS:CreationName="STOCK:FOREACHLOOP"
@@ -319,14 +336,14 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
           DTS:LocaleID="-1"
           DTS:ObjectName="EPT_Unzip_SimpleNexus"
           DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
-            DTS:Name="Arguments">"X " +  @[User::varZipedFile] + " -o" +  @[User::varDest]</DTS:PropertyExpression>
+            DTS:Name="Arguments">"x " +  @[User::varZipedFile] + " -o" +  @[User::varDest]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <ExecuteProcessData
               Executable="C:\Program Files\7-Zip\7z.exe"
-              Arguments="X C:\QuickenLoan\ZipedFtpFile\ -oC:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak" />
+              Arguments="x C:\QuickenLoan\ZipedFtpFile\ -oC:\QuickenLoan\UnZipedFtpFile\" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -338,7 +355,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
           DTS:LocaleID="-1"
           DTS:ObjectName="FST_Rename and Move"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -378,7 +395,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:LocaleID="-1"
       DTS:ObjectName="FST_Delete_SimpleNexus bakFile"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <FileSystemData
@@ -419,7 +436,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:LocaleID="-1"
       DTS:ObjectName="GetMaxLastModifiedDate"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -11132,7 +11149,8 @@ where [refTable].[MarketSourceCode] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM QL.QuickenLoan
+WHERE LastModifiedDate &gt; ?</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11149,11 +11167,11 @@ where [refTable].[MarketSourceCode] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"o:Input",{82BF510A-88FA-44EC-9AD5-16ACB79C4544};</property>
                   </properties>
                   <connections>
                     <connection
@@ -13118,14 +13136,14 @@ where [refTable].[MarketSourceCode] = ?</property>
               <paths>
                 <path
                   refId="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Derived Column Output]"
-                  endId="Package\Sequence Container\Data Flow Task_SimpleNexus\MarketSourceLookup.Inputs[Lookup Input]"
-                  name="Derived Column Output"
-                  startId="Package\Sequence Container\Data Flow Task_SimpleNexus\Derived Column 1.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Derived Column Output1]"
                   endId="Package\Sequence Container\Data Flow Task_SimpleNexus\Row Count.Inputs[Row Count Input 1]"
                   name="Derived Column Output"
                   startId="Package\Sequence Container\Data Flow Task_SimpleNexus\MortgageInsuranceCompany.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Derived Column Output1]"
+                  endId="Package\Sequence Container\Data Flow Task_SimpleNexus\MarketSourceLookup.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Data Flow Task_SimpleNexus\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Fuzzy Lookup Output]"
                   endId="Package\Sequence Container\Data Flow Task_SimpleNexus\MortgageInsuranceCompany.Inputs[Derived Column Input]"
@@ -13165,12 +13183,12 @@ where [refTable].[MarketSourceCode] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="ESQL_Restore SimpleNexusDB"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}"
-              SQLTask:SqlStatementSource="USE [master]&#xA;RESTORE DATABASE [SimpleNexus] FROM  DISK = N'C:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak' WITH  FILE = 1,  MOVE N'SimpleNexus' TO N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\SimpleNexus.mdf',  MOVE N'SimpleNexus_log' TO N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\SimpleNexus_log.ldf',  NOUNLOAD,  STATS = 5&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource=" USE [master]&#xA;RESTORE DATABASE [SimpleNexus] FROM  DISK = N'C:\QuickenLoan\UnZipedFtpFile\SimpleNexus.bak' WITH  FILE = 1,  MOVE N'SimpleNexus' TO N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\SimpleNexus.mdf',  MOVE N'SimpleNexus_log' TO N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\SimpleNexus_log.ldf',  NOUNLOAD,  STATS = 5&#xA;&#xA;GO&#xA;  &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -13182,7 +13200,7 @@ where [refTable].[MarketSourceCode] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="ESQL_Task_ETL_Log"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13242,7 +13260,7 @@ where [refTable].[MarketSourceCode] = ?</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="ESQL_Task_GetMaxLastModifiedDate"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -13266,21 +13284,21 @@ where [refTable].[MarketSourceCode] = ?</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Sequence Container\Execute SQL Task_Delete_SimpleNexus"
+          DTS:refId="Package\Sequence Container\EST_Delete_SimpleNexusDB"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{0D6A85A7-81A8-4C68-8A14-9A4B9837B573}"
+          DTS:Disabled="True"
+          DTS:DTSID="{F1801EBC-FA28-485C-B94C-71C16755E981}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task_Delete_SimpleNexus"
+          DTS:ObjectName="EST_Delete_SimpleNexusDB"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{C5A6EF59-F58E-4FF0-AB36-09CD6FBDCB5F}"
-              SQLTask:SqlStmtSourceType="Variable"
-              SQLTask:SqlStatementSource="User::varDeleteSTGTable" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="USE master;&#xA;GO&#xA;DROP database SimpleNexus" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -13288,19 +13306,19 @@ where [refTable].[MarketSourceCode] = ?</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{1A6598AD-B0BF-4A91-BC97-D5471E48A2D1}"
+          DTS:DTSID="{CC10133B-FCB3-46A4-A5DA-1C7D97FD95B9}"
           DTS:From="Package\Sequence Container\ESQL_Task_GetMaxLastModifiedDate"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
-          DTS:To="Package\Sequence Container\Execute SQL Task_Delete_SimpleNexus" />
+          DTS:To="Package\Sequence Container\Data Flow Task_SimpleNexus" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{3AF441BA-5786-43E6-84F1-0963C8DE3A4A}"
-          DTS:From="Package\Sequence Container\Execute SQL Task_Delete_SimpleNexus"
+          DTS:DTSID="{3EECE2B8-2269-4782-96B3-626EAA30B2E4}"
+          DTS:From="Package\Sequence Container\ESQL_Task_ETL_Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Sequence Container\Data Flow Task_SimpleNexus" />
+          DTS:To="Package\Sequence Container\EST_Delete_SimpleNexusDB" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
@@ -13486,6 +13504,92 @@ namespace ST_8a6dd541ab594d1fa475529e983e1626.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
+            Name="ST_8a6dd541ab594d1fa475529e983e1626.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8B3976E-963D-48D0-91C7-BAD624FD39D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_8a6dd541ab594d1fa475529e983e1626</RootNamespace>
+    <AssemblyName>ST_8a6dd541ab594d1fa475529e983e1626</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
 /* The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -13594,8 +13698,8 @@ namespace ST_8a6dd541ab594d1fa475529e983e1626
             {
                 Dts.Variables["User::varIsfileexistisflag"].Value = 0;
             }
-            MessageBox.Show(Filepath);
-            MessageBox.Show(Dts.Variables["User::varIsfileexistisflag"].Value.ToString());
+            //MessageBox.Show(Filepath);
+            //MessageBox.Show(Dts.Variables["User::varIsfileexistisflag"].Value.ToString());
             Dts.TaskResult = (int)ScriptResults.Success;
         }
         #region ScriptResults declaration
@@ -13621,7 +13725,7 @@ namespace ST_8a6dd541ab594d1fa475529e983e1626
     <msb:CodeName>ST_8a6dd541ab594d1fa475529e983e1626</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>ST_8a6dd541ab594d1fa475529e983e1626</msb:DisplayName>
-    <msb:ProjectId>{0111E028-3BBE-4297-BB8F-7836A68F29F2}</msb:ProjectId>
+    <msb:ProjectId>{471E75B9-B515-4C05-A667-36DD65711B17}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="ST_8a6dd541ab594d1fa475529e983e1626.csproj" />
@@ -13633,92 +13737,6 @@ namespace ST_8a6dd541ab594d1fa475529e983e1626
     <msb:File Include="ScriptMain.cs" />
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
-          <ProjectItem
-            Name="ST_8a6dd541ab594d1fa475529e983e1626.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F8B3976E-963D-48D0-91C7-BAD624FD39D5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_8a6dd541ab594d1fa475529e983e1626</RootNamespace>
-    <AssemblyName>ST_8a6dd541ab594d1fa475529e983e1626</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
-        <Host Name="ScriptTask" />
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST150</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
           <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
@@ -13829,95 +13847,95 @@ namespace ST_8a6dd541ab594d1fa475529e983e1626.Properties {
           <BinaryItem
             Name="ST_8a6dd541ab594d1fa475529e983e1626.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAB4faF8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAQi8A
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAMMHbF8AAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAAti4A
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPAuAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAGQuAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAASA8AAAAgAAAAEAAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAvA4AAAAgAAAAEAAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAk
-LwAAAAAAAEgAAAACAAUAiCEAALAMAAABAAAAAAAAADguAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAwDFAAAAAAAAAAIoEAAACm8RAAAKcgEAAHBvEgAACm8T
-AAAKbxQAAAoCKBAAAApvEQAACnInAABwbxIAAApvEwAACm8UAAAKKBUAAAolKBYAAAosIgIoEAAA
-Cm8RAAAKclUAAHBvEgAACheMHQAAAW8XAAAKKyACKBAAAApvEQAACnJVAABwbxIAAAoWjB0AAAFv
-FwAACigYAAAKJgIoEAAACm8RAAAKclUAAHBvEgAACm8TAAAKbxQAAAooGAAACiYCKBAAAAoWbxkA
-AAoqHgIoGgAACioeAigbAAAKKq5+AQAABC0ecosAAHDQAwAAAigcAAAKbx0AAApzHgAACoABAAAE
-fgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB8AAAoqLnMIAAAGgAMAAAQqAEJTSkIBAAEA
-AAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAAAEAAAjfgAAbAQAALwFAAAjU3RyaW5ncwAAAAAo
-CgAAAAEAACNVUwAoCwAAEAAAACNHVUlEAAAAOAsAAHgBAAAjQmxvYgAAAAAAAAACAAABVx2gAQkD
-AAAA+gEzABYAAAEAAAAiAAAABQAAAAYAAAAJAAAAAQAAAB8AAAACAAAAEAAAAAIAAAADAAAABAAA
-AAEAAAAFAAAAAQAAAAEAAAAAAJQDAQAAAAAABgA6AmQEBgDJAmQEBgCGAVEEDwDYBAAABgCzARIE
-BgAdAhIEBgD+ARIEBgCwAhIEBgBaAhIEBgBzAhIEBgDKARIEBgDlAQEDCgCOAkMDCgAFAUMDBgDM
-A8UDBgBpAVEEBgBuBcUDBgA0BIQEBgAkBP0DDgA5AX4DDgCaAX4DDgAhAegDBgBOAWQECgBsA0MD
-EgAaBbAAEgB+ALAABgAdA8UDBgCrADQABgABAMUDFgCiBS0FFgCBBS0FBgDQAMUDBgCHAMUDBgCx
-BRIEAAAAACsAAAAAAAEAAQABABAA3QMHADkAAQABAAAAEACLBOcERQABAAMAAAEQACQF5wRZAAMA
-BwADAQAAUgUAAD0ABAAKABEA0QN8ABEA9QCAABEAbgCEAAYGXQCIAFaAQgWLAFaA1QCLAFAgAAAA
-AIYA4wMGAAEAISEAAAAAhhhEBAYAAQApIQAAAACDGEQEBgABADEhAAAAAJMIMASPAAEAXSEAAAAA
-kwjdAJQAAQBkIQAAAACTCOkAmQABAGwhAAAAAJYIdQWfAAIAcyEAAAAAhhhEBAYAAgB7IQAAAACR
-GEoEpAACAAAAAQD7AgkARAQBABEARAQGABkARAQKACkARAQQADEARAQQADkARAQQAEEARAQQAEkA
-RAQQAFEARAQQAFkARAQQAGEARAQQAGkARAQGAIEARAQGAKkARAQVALkARAQGAHEASgUbAMEAFgUg
-AMkAvAMlANEA5wIrAIkAGwMvANkAZwUzAOEAYAU5ANEA8QI+APEAnQVDAMEAjgUBAHEARAQGAIkA
-RAQGAAEBmQBJAAEBrQVSAJEARARYALEARAQGAAgAFAByAAgAGAB3ACkAcwDfAC4ACwC3AC4AEwDA
-AC4AGwDfAC4AIwDoAC4AKwARAS4AMwARAS4AOwARAS4AQwDoAC4ASwAXAS4AUwARAS4AWwAuAUMA
-YwB3AEkAcwDfAGEAewB3AGMAawB3AAMAAQAEAAMAAAA0BKgAAAD9AK0AAAB5BbIAAgAEAAMAAgAF
-AAUAAQAGAAUAAgAHAAcABIAAAAEAAACQHa+lAAAAAAAABwAAAAQAAAAAAAAAAAAAAGAAZQAAAAAA
-DwAAAAAAAAAAAAAAaQAkAwAAAAAEAAAAAAAAAAAAAABgAMUDAAAAAA8AAAAAAAAAAAAAAGkAPgAA
-AAAABAAAAAAAAAAAAAAAYAAtBQAAAAAAAAAAAQAAAJUEAAAFAAIAAAAASW50MzIAU1RfOGE2ZGQ1
-NDFhYjU5NGQxZmE0NzU1MjllOTgzZTE2MjYAPE1vZHVsZT4AU3lzdGVtLklPAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuTWFuYWdlZERUUwB2YWx1ZV9fAG1zY29ybGliAGRlZmF1bHRJbnN0YW5jZQBWYXJp
-YWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBGaWxlAE1pY3Jvc29mdC5T
-cWxTZXJ2ZXIuRHRzLlJ1bnRpbWUAVHlwZQBGYWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJl
-AHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25T
-ZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1
-dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRv
-ckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVt
-YXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRp
-b25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4
-YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdo
-dEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21w
-YW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQBzZXRf
-VmFsdWUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBNaWNyb3NvZnQu
-U3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2NyaXB0
-VGFzawBTY3JpcHRPYmplY3RNb2RlbABTeXN0ZW0uQ29tcG9uZW50TW9kZWwAU1RfOGE2ZGQ1NDFh
-YjU5NGQxZmE0NzU1MjllOTgzZTE2MjYuZGxsAGdldF9JdGVtAFN5c3RlbQBFbnVtAHJlc291cmNl
-TWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24A
-U3lzdGVtLlJlZmxlY3Rpb24AQ3VsdHVyZUluZm8AZ2V0X1Jlc291cmNlTWFuYWdlcgAuY3RvcgAu
-Y2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMA
-U3lzdGVtLlJlc291cmNlcwBTVF84YTZkZDU0MWFiNTk0ZDFmYTQ3NTUyOWU5ODNlMTYyNi5Qcm9w
-ZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU1RfOGE2ZGQ1NDFhYjU5
-NGQxZmE0NzU1MjllOTgzZTE2MjYuUHJvcGVydGllcwBnZXRfVmFyaWFibGVzAFNldHRpbmdzAFN5
-c3RlbS5XaW5kb3dzLkZvcm1zAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAEV4aXN0cwBD
-b25jYXQAT2JqZWN0AGdldF9EZWZhdWx0AERpYWxvZ1Jlc3VsdABzZXRfVGFza1Jlc3VsdABTaG93
-AE1lc3NhZ2VCb3gAZ2V0X0Fzc2VtYmx5AAAAACVVAHMAZQByADoAOgB2AGEAcgBaAGkAcABlAGQA
-RgBpAGwAZQAALVUAcwBlAHIAOgA6AHYAYQByAFoAaQBwAGUAZABGAGkAbABlAE4AYQBtAGUAADVV
-AHMAZQByADoAOgB2AGEAcgBJAHMAZgBpAGwAZQBlAHgAaQBzAHQAaQBzAGYAbABhAGcAAHFTAFQA
-XwA4AGEANgBkAGQANQA0ADEAYQBiADUAOQA0AGQAMQBmAGEANAA3ADUANQAyADkAZQA5ADgAMwBl
-ADEANgAyADYALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAAL4a
-WQT2o7ZJnFyCnJsTpn0ABCABAQgDIAABBSABARERBCABAQ4FIAEBEVEEIAASYQQgABJlBSABEmkc
-AyAAHAMgAA4FAAIODg4EAAECDgQgAQEcBQABEX0OCAABEoCBEYCFBSAAEoCJByACAQ4SgIkIt3pc
-Vhk04IkIiYRdzYCAzJEEAAAAAAQBAAAAAwYSSQMGEk0DBhIQAgYIAwYRFAQAABJJBAAAEk0FAAEB
-Ek0EAAASEAMAAAEECAASSQQIABJNBAgAEhAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRp
-b25UaHJvd3MBCAEAAgAAAAAAKAEAI1NUXzhhNmRkNTQxYWI1OTRkMWZhNDc1NTI5ZTk4M2UxNjI2
-AAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjAAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249
-djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43tAAAAM7K774B
-AAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lv
-bj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUw
-ODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQ
-tAAAABgvAAAAAAAAAAAAADIvAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkLwAAAAAAAAAAAAAA
-AF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACY
+LgAAAAAAAEgAAAACAAUAXCEAAFAMAAABAAAAAAAAAKwtAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwAwCZAAAAAAAAAAIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAoCKBAAAApvEQAACnInAABwbxIAAApvEwAACm8UAAAKKBUAAAooFgAACiwiAigQAAAK
+bxEAAApyVQAAcG8SAAAKF4wdAAABbxcAAAorIAIoEAAACm8RAAAKclUAAHBvEgAAChaMHQAAAW8X
+AAAKAigQAAAKFm8YAAAKKh4CKBkAAAoqHgIoGgAACiqufgEAAAQtHnKLAABw0AMAAAIoGwAACm8c
+AAAKcx0AAAqAAQAABH4BAAAEKhp+AgAABCoeAoACAAAEKhp+AwAABCoeAigeAAAKKi5zCAAABoAD
+AAAEKgBCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAADcAwAAI34AAEgEAACIBQAA
+I1N0cmluZ3MAAAAA0AkAAAABAAAjVVMA0AoAABAAAAAjR1VJRAAAAOAKAABwAQAAI0Jsb2IAAAAA
+AAAAAgAAAVcdoAEJAwAAAPoBMwAWAAABAAAAIAAAAAUAAAAGAAAACQAAAAEAAAAeAAAAAgAAABAA
+AAACAAAAAwAAAAQAAAABAAAABAAAAAEAAAABAAAAAACUAwEAAAAAAAYAOgJkBAYAyQJkBAYAhgFR
+BA8A2AQAAAYAswESBAYAHQISBAYA/gESBAYAsAISBAYAWgISBAYAcwISBAYAygESBAYA5QEBAwoA
+jgJDAwoABQFDAwYAzAPFAwYAaQFRBAYAWQXFAwYANASEBAYAJAT9Aw4AOQF+Aw4AmgF+Aw4AIQHo
+AwYATgFkBAoAbANDAxIAGgWwABIAfgCwAAYAHQPFAwYAqwA0AAYAAQDFAwYA0ADFAwYAhwDFAwYA
+fwUSBAAAAAArAAAAAAABAAEAAQAQAN0DBwA5AAEAAQAAABAAiwTnBEUAAQADAAABEAAkBecEWQAD
+AAcAAwEAAD0FAAA9AAQACgARANEDdAARAPUAeAARAG4AfAAGBl0AgABWgC0FgwBWgNUAgwBQIAAA
+AACGAOMDBgABAPUgAAAAAIYYRAQGAAEA/SAAAAAAgxhEBAYAAQAFIQAAAACTCDAEhwABADEhAAAA
+AJMI3QCMAAEAOCEAAAAAkwjpAJEAAQBAIQAAAACWCGAFlwACAEchAAAAAIYYRAQGAAIATyEAAAAA
+kRhKBJwAAgAAAAEA+wIJAEQEAQARAEQEBgAZAEQECgApAEQEEAAxAEQEEAA5AEQEEABBAEQEEABJ
+AEQEEABRAEQEEABZAEQEEABhAEQEEABpAEQEBgCBAEQEBgCpAEQEFQC5AEQEBgBxADUFGwDBABYF
+IADJALwDJQDRAOcCKwCJABsDLwDZAFIFMwDhAEsFOQDRAPECPgDBAGwFAQBxAEQEBgCJAEQEBgDx
+AJkAQwDxAHsFSgCRAEQEUACxAEQEBgAIABQAagAIABgAbwApAHMA1wAuAAsArwAuABMAuAAuABsA
+1wAuACMA4AAuACsACQEuADMACQEuADsACQEuAEMA4AAuAEsADwEuAFMACQEuAFsAJgFDAGMAbwBJ
+AHMA1wBhAHsAbwBjAGsAbwADAAEABAADAAAANASgAAAA/QClAAAAZAWqAAIABAADAAIABQAFAAEA
+BgAFAAIABwAHAASAAAABAAAAkx3BnwAAAAAAAAcAAAAEAAAAAAAAAAAAAABYAGUAAAAAAA8AAAAA
+AAAAAAAAAGEAJAMAAAAABAAAAAAAAAAAAAAAWADFAwAAAAAPAAAAAAAAAAAAAABhAD4AAAAAAAAA
+AAABAAAAlQQAAAUAAgAAAAAAAEludDMyAFNUXzhhNmRkNTQxYWI1OTRkMWZhNDc1NTI5ZTk4M2Ux
+NjI2ADxNb2R1bGU+AFN5c3RlbS5JTwBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFs
+dWVfXwBtc2NvcmxpYgBkZWZhdWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUA
+R2V0VHlwZUZyb21IYW5kbGUARmlsZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lAFR5
+cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAVlNUQVJU
+U2NyaXB0T2JqZWN0TW9kZWxCYXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dz
+YWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVB
+dHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNz
+ZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFt
+ZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVz
+Y3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJs
+eVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdFRh
+c2tFbnRyeVBvaW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29t
+cGF0aWJpbGl0eUF0dHJpYnV0ZQBnZXRfVmFsdWUAc2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50
+aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcATWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1p
+Y3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwA
+U3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUXzhhNmRkNTQxYWI1OTRkMWZhNDc1NTI5ZTk4M2UxNjI2
+LmRsbABnZXRfSXRlbQBTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5D
+b25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEN1bHR1
+cmVJbmZvAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGlj
+cwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfOGE2
+ZGQ1NDFhYjU5NGQxZmE0NzU1MjllOTgzZTE2MjYuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3Vy
+Y2VzAERlYnVnZ2luZ01vZGVzAFNUXzhhNmRkNTQxYWI1OTRkMWZhNDc1NTI5ZTk4M2UxNjI2LlBy
+b3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBTdWNjZXNzAGdldF9EdHMAU2NyaXB0UmVz
+dWx0cwBFeGlzdHMAQ29uY2F0AE9iamVjdABnZXRfRGVmYXVsdABzZXRfVGFza1Jlc3VsdABnZXRf
+QXNzZW1ibHkAACVVAHMAZQByADoAOgB2AGEAcgBaAGkAcABlAGQARgBpAGwAZQAALVUAcwBlAHIA
+OgA6AHYAYQByAFoAaQBwAGUAZABGAGkAbABlAE4AYQBtAGUAADVVAHMAZQByADoAOgB2AGEAcgBJ
+AHMAZgBpAGwAZQBlAHgAaQBzAHQAaQBzAGYAbABhAGcAAHFTAFQAXwA4AGEANgBkAGQANQA0ADEA
+YQBiADUAOQA0AGQAMQBmAGEANAA3ADUANQAyADkAZQA5ADgAMwBlADEANgAyADYALgBQAHIAbwBw
+AGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAAOP+CZl11WNHvupbCgz14QMABCAB
+AQgDIAABBSABARERBCABAQ4FIAEBEVEEIAASYQQgABJlBSABEmkcAyAAHAMgAA4FAAIODg4EAAEC
+DgQgAQEcBgABEnkRfQUgABKAgQcgAgEOEoCBCLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMG
+EkkDBhJNAwYSEAIGCAMGERQEAAASSQQAABJNBQABARJNBAAAEhADAAABBAgAEkkECAASTQQIABIQ
+CAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF84
+YTZkZDU0MWFiNTk0ZDFmYTQ3NTUyOWU5ODNlMTYyNgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAy
+MDIwAABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlO
+YW1lEi5ORVQgRnJhbWV3b3JrIDQuN7QAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
+ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
+LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
+ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACMLgAAAAAAAAAAAACmLgAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAmC4AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
+AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
 AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
-AAAAAAC9BO/+AAABAAAAAQCvpZAdAAABAK+lkB0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+AAAAAAC9BO/+AAABAAAAAQDBn5MdAAABAMGfkx0/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
 RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
 AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
 MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
 AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
 AAAAAFMAVABfADgAYQA2AGQAZAA1ADQAMQBhAGIANQA5ADQAZAAxAGYAYQA0ADcANQA1ADIAOQBl
 ADkAOAAzAGUAMQA2ADIANgAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
-LgA3ADUANgA4AC4ANAAyADQAMQA1AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+LgA3ADUANwAxAC4ANAAwADgAOQA3AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
 AFMAVABfADgAYQA2AGQAZAA1ADQAMQBhAGIANQA5ADQAZAAxAGYAYQA0ADcANQA1ADIAOQBlADkA
 OAAzAGUAMQA2ADIANgAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
 AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgAwAAAAKgABAAEATABlAGcAYQBsAFQA
@@ -13926,15 +13944,15 @@ AGEAbQBlAAAAUwBUAF8AOABhADYAZABkADUANAAxAGEAYgA1ADkANABkADEAZgBhADQANwA1ADUA
 MgA5AGUAOQA4ADMAZQAxADYAMgA2AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
 AGUAAAAAAFMAVABfADgAYQA2AGQAZAA1ADQAMQBhAGIANQA5ADQAZAAxAGYAYQA0ADcANQA1ADIA
 OQBlADkAOAAzAGUAMQA2ADIANgAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
-ADEALgAwAC4ANwA1ADYAOAAuADQAMgA0ADEANQAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
-VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADYAOAAuADQAMgA0ADEANQAAAAAAAAAAAAAAAAAA
+ADEALgAwAC4ANwA1ADcAMQAuADQAMAA4ADkANwAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANwA1ADcAMQAuADQAMAA4ADkANwAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAABEPwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAC4PgAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -13955,7 +13973,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="ST_Email Missing File Notification"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <ScriptProject
@@ -13965,36 +13983,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           Language="CSharp"
           ReadOnlyVariables="System::PackageName,System::StartTime,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
           ReadWriteVariables="User::varBody">
-          <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -14114,6 +14102,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
+    "ings")]
+
+namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -14261,6 +14278,133 @@ namespace ST_718b55d4abb94e7db24a769abff189fa
     #endregion
 }]]></ProjectItem>
           <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_9b3b266e0c9c45ed86a4305875499940</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_9b3b266e0c9c45ed86a4305875499940</msb:DisplayName>
+    <msb:ProjectId>{A372FF1D-BBF9-40A8-8E31-145FD8E10DE1}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_9b3b266e0c9c45ed86a4305875499940.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
             Name="ST_9b3b266e0c9c45ed86a4305875499940.csproj"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -14346,132 +14490,6 @@ namespace ST_718b55d4abb94e7db24a769abff189fa
     </VisualStudio>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
-          <ProjectItem
-            Name="Project"
-            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_9b3b266e0c9c45ed86a4305875499940</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_9b3b266e0c9c45ed86a4305875499940</msb:DisplayName>
-    <msb:ProjectId>{A372FF1D-BBF9-40A8-8E31-145FD8E10DE1}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_9b3b266e0c9c45ed86a4305875499940.csproj" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
-    "ings")]
-
-namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Resources.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
-    "rceManager")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
-    "fo")]
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
-    "):Void")]
-
-namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
-    
-    
-    /// <summary>
-    ///   A strongly-typed resource class, for looking up localized strings, etc.
-    /// </summary>
-    // This class was auto-generated by the StronglyTypedResourceBuilder
-    // class via a tool like ResGen or Visual Studio.
-    // To add or remove a member, edit your .ResX file then rerun ResGen
-    // with the /str option, or rebuild your VS project.
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class Resources {
-        
-        private static global::System.Resources.ResourceManager resourceMan;
-        
-        private static global::System.Globalization.CultureInfo resourceCulture;
-        
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
-        }
-        
-        /// <summary>
-        ///   Returns the cached ResourceManager instance used by this class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if ((resourceMan == null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_718b55d4abb94e7db24a769abff189fa.Properties.Resources", typeof(Resources).Assembly);
-                    resourceMan = temp;
-                }
-                return resourceMan;
-            }
-        }
-        
-        /// <summary>
-        ///   Overrides the current thread's CurrentUICulture property for all
-        ///   resource lookups using this strongly typed resource class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
-            get {
-                return resourceCulture;
-            }
-            set {
-                resourceCulture = value;
-            }
-        }
-    }
-}]]></ProjectItem>
           <BinaryItem
             Name="ST_9b3b266e0c9c45ed86a4305875499940.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
@@ -14634,7 +14652,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{EA8ED66B-5CB5-4CD4-B36C-74BD34415F4D}"
+      DTS:DTSID="{BF932507-18CD-4FD3-8A99-9E4D52522B15}"
       DTS:From="Package\FELC_Unzip Rename and Move"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -14757,6 +14775,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -14875,35 +14902,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
-    "ings")]
-
-namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
               <ProjectItem
                 Name="ST_718b55d4abb94e7db24a769abff189fa.csproj"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -15153,6 +15151,35 @@ namespace ST_718b55d4abb94e7db24a769abff189fa
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_718b55d4abb94e7db24a769abff189fa.Properties.Settings.get_Default():ST_718b55d4abb94e7db24a769abff189fa.Properties.Sett" +
+    "ings")]
+
+namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
                 Name="Properties\AssemblyInfo.cs"
                 Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -15182,15 +15209,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-              <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -15552,6 +15570,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\FELC_Unzip Rename and Move"
           TopLeft="325.555564179833,357.782617967611" />
         <NodeLayout
+          Size="234.857142857143,42.2857142857143"
+          Id="Package\FST_Delete_SimpleNexus bakFile"
+          TopLeft="791.444440720988,703.701884270873" />
+        <NodeLayout
           Size="191.428571428572,42.2857142857143"
           Id="Package\FTPT_Pull_SimpleNexus"
           TopLeft="13.8888892568188,113.813667057078" />
@@ -15562,67 +15584,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="217.714285714286,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus"
-          TopLeft="31.34920748243,264.801257865061" />
+          TopLeft="60.2380971366129,197.540386556774" />
         <NodeLayout
           Size="222.857142857143,42.2857142857143"
           Id="Package\Sequence Container\ESQL_Restore SimpleNexusDB"
-          TopLeft="57.9841325619442,17.4409998236494" />
+          TopLeft="63.5396882646717,3.31056467484956" />
+        <NodeLayout
+          Size="178.285714285715,42.2857142857143"
+          Id="Package\Sequence Container\ESQL_Task_ETL_Log"
+          TopLeft="79.0952590672434,302.260880404474" />
         <NodeLayout
           Size="254.285714285715,42.2857142857143"
           Id="Package\Sequence Container\ESQL_Task_GetMaxLastModifiedDate"
-          TopLeft="36.8888864752685,107.552806866352" />
-        <NodeLayout
-          Size="265.714285714286,42.2857142857143"
-          Id="Package\Sequence Container\Execute SQL Task_Delete_SimpleNexus"
-          TopLeft="30.7777778513637,182.279516596071" />
+          TopLeft="34.1111086239047,81.5528061925604" />
         <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="163.833332163316,149.838521152066">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="168.666678101928,239.826100842488">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.4409954440046"
+              EndConnector="0,62.4347795619857"
               Start="0,0"
-              End="0,24.9409954440046">
+              End="0,54.9347795619857">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9409954440046" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="163.634920708507,224.565230881785">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-23.4285703689337,40.2360269832764"
-              Start="0,0"
-              End="-23.4285703689337,32.7360269832764">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.1180134916382" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.1180134916382"
-                    Point2="0,20.1180134916382"
-                    Point3="-4,20.1180134916382" />
-                  <mssgle:LineSegment
-                    End="-19.4285703689337,20.1180134916382" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-19.4285703689337,20.1180134916382"
-                    Point2="-23.4285703689337,20.1180134916382"
-                    Point3="-23.4285703689337,24.1180134916382" />
-                  <mssgle:LineSegment
-                    End="-23.4285703689337,32.7360269832764" />
+                    End="0,54.9347795619857" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15633,18 +15621,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
-          TopLeft="166.722223804321,59.7267141093637">
+          TopLeft="174.968259693243,45.5962789605638">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.8260927569881"
+              EndConnector="-13.7142939264813,35.9565272319965"
               Start="0,0"
-              End="0,40.3260927569881">
+              End="-13.7142939264813,28.4565272319965">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.3260927569881" />
+                    End="0,13.9782636159983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9782636159983"
+                    Point2="0,17.9782636159983"
+                    Point3="-4,17.9782636159983" />
+                  <mssgle:LineSegment
+                    End="-9.7142939264813,17.9782636159983" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.7142939264813,17.9782636159983"
+                    Point2="-13.7142939264813,17.9782636159983"
+                    Point3="-13.7142939264813,21.9782636159983" />
+                  <mssgle:LineSegment
+                    End="-13.7142939264813,28.4565272319965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="165.174602880259,123.838520478275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.7018660784993"
+              Start="0,0"
+              End="0,66.2018660784993">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.2018660784993" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15654,35 +15676,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="178.285714285715,42.2857142857143"
-          Id="Package\Sequence Container\ESQL_Task_ETL_Log"
-          TopLeft="69.0952588023343,376.304360584185" />
+          Size="212.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\EST_Delete_SimpleNexusDB"
+          TopLeft="88.6825544144535,425.869578327033" />
         <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
-          TopLeft="140.206350339573,307.086972150776">
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="168.238116210101,344.546594690188">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.0317656056187,69.2173884334097"
+              EndConnector="26.7301524900672,81.3229836368449"
               Start="0,0"
-              End="18.0317656056187,61.7173884334097">
+              End="26.7301524900672,73.8229836368449">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.6086942167048" />
+                    End="0,36.6614918184225" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.6086942167048"
-                    Point2="0,34.6086942167048"
-                    Point3="4,34.6086942167048" />
+                    Point1="0,36.6614918184225"
+                    Point2="0,40.6614918184225"
+                    Point3="4,40.6614918184225" />
                   <mssgle:LineSegment
-                    End="14.0317656056187,34.6086942167048" />
+                    End="22.7301524900672,40.6614918184225" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.0317656056187,34.6086942167048"
-                    Point2="18.0317656056187,34.6086942167048"
-                    Point3="18.0317656056187,38.6086942167048" />
+                    Point1="22.7301524900672,40.6614918184225"
+                    Point2="26.7301524900672,40.6614918184225"
+                    Point3="26.7301524900672,44.6614918184225" />
                   <mssgle:LineSegment
-                    End="18.0317656056187,61.7173884334097" />
+                    End="26.7301524900672,73.8229836368449" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15694,10 +15716,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="346.857142857143,473.714285714286"
-          Size="346.857142857143,516.571428571429"
+          PanelSize="346.857142857143,523.428571428572"
+          Size="346.857142857143,566.285714285715"
           Id="Package\Sequence Container"
-          TopLeft="716.777794010845,106.260872318974" />
+          TopLeft="942.888911111855,93.2608719820782" />
         <NodeLayout
           Size="192.571428571429,42.2857142857143"
           Id="Package\ST_Check File Existance"
@@ -15777,40 +15799,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="591.269849894119,482.639760824754">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.507944116726,-118.093174220066"
-              Start="0,0"
-              End="118.007944116726,-118.093174220066">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="58.7539720583629,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.7539720583629,0"
-                    Point2="62.7539720583629,0"
-                    Point3="62.7539720583629,-4" />
-                  <mssgle:LineSegment
-                    End="62.7539720583629,-114.093174220066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.7539720583629,-114.093174220066"
-                    Point2="62.7539720583629,-118.093174220066"
-                    Point3="66.7539720583629,-118.093174220066" />
-                  <mssgle:LineSegment
-                    End="118.007944116726,-118.093174220066" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="166.285716140081,285.894416251023">
           <EdgeLayout.Curve>
@@ -15846,36 +15834,70 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="234.857142857143,42.2857142857143"
-          Id="Package\FST_Delete_SimpleNexus bakFile"
-          TopLeft="783.666662737169,662.441013636378" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="890.206365439416,622.832300890402">
+          TopLeft="1116.31748254043,659.546586267792">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.8888687263246,39.6087127459759"
+              EndConnector="-207.444470390867,44.1552980030808"
               Start="0,0"
-              End="10.8888687263246,32.1087127459759">
+              End="-207.444470390867,36.6552980030808">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.804356372988" />
+                    End="0,18.0776490015404" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.804356372988"
-                    Point2="0,19.804356372988"
-                    Point3="4,19.804356372988" />
+                    Point1="0,18.0776490015404"
+                    Point2="0,22.0776490015404"
+                    Point3="-4,22.0776490015404" />
                   <mssgle:LineSegment
-                    End="6.88886872632463,19.804356372988" />
+                    End="-203.444470390867,22.0776490015404" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.88886872632463,19.804356372988"
-                    Point2="10.8888687263246,19.804356372988"
-                    Point3="10.8888687263246,23.804356372988" />
+                    Point1="-203.444470390867,22.0776490015404"
+                    Point2="-207.444470390867,22.0776490015404"
+                    Point3="-207.444470390867,26.0776490015404" />
                   <mssgle:LineSegment
-                    End="10.8888687263246,32.1087127459759" />
+                    End="-207.444470390867,36.6552980030808" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="265.714285714286,42.2857142857143"
+          Id="Package\Execute SQL Task_Delete_SimpleNexus"
+          TopLeft="1409.19048780234,148.149077404521" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="591.269849894119,482.639760824754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="351.619061217736,-106.236031699818"
+              Start="0,0"
+              End="344.119061217736,-106.236031699818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="171.809530608868,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="171.809530608868,0"
+                    Point2="175.809530608868,0"
+                    Point3="175.809530608868,-4" />
+                  <mssgle:LineSegment
+                    End="175.809530608868,-102.236031699818" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.809530608868,-102.236031699818"
+                    Point2="175.809530608868,-106.236031699818"
+                    Point3="179.809530608868,-106.236031699818" />
+                  <mssgle:LineSegment
+                    End="344.119061217736,-106.236031699818" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15891,7 +15913,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -15931,7 +15953,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -15955,95 +15979,51 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="177.714285714286,42.2857142857143"
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\MarketSourceLookup"
-          TopLeft="769.71430584741,230.608701628412" />
-        <NodeLayout
           Size="163.428571428572,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Derived Column 1"
-          TopLeft="611.666682870299,89.3043501404151" />
+          TopLeft="850.555578087581,101.739133071359" />
+        <NodeLayout
+          Size="171.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Destination"
+          TopLeft="467.777790169669,353.826096125948" />
+        <NodeLayout
+          Size="177.714285714286,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\MarketSourceLookup"
+          TopLeft="845.269863404505,250.956528242683" />
+        <NodeLayout
+          Size="130.857142857143,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Row Count"
+          TopLeft="180.555560338643,346.47826984857" />
+        <NodeLayout
+          Size="240,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Fuzzy Lookup_MortgageInsurance"
+          TopLeft="473.333345872385,244.739136777212" />
         <NodeLayout
           Size="214.285714285715,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus\MortgageInsuranceCompany"
           TopLeft="132.777781295186,241.913049747452" />
         <NodeLayout
-          Size="240,42.2857142857143"
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Fuzzy Lookup_MortgageInsurance"
-          TopLeft="415.555566564019,237.391310499836" />
-        <NodeLayout
-          Size="130.857142857143,42.2857142857143"
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Row Count"
-          TopLeft="337.777786725832,381.521749017594" />
-        <NodeLayout
           Size="155.428571428572,42.2857142857143"
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus\Conditional Split"
-          TopLeft="373.888898793562,89.0683245047215" />
+          TopLeft="474.44445701293,102.633542247569" />
         <NodeLayout
-          Size="171.428571428572,42.2857142857143"
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Destination"
-          TopLeft="565.555570537673,389.434792700923" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Lookup Match Output]"
-          TopLeft="769.71430584741,255.142863206981">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-114.158739283391,0"
-              Start="0,0"
-              End="-106.658739283391,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-106.658739283391,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-101.520756360446,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[keep]"
-          TopLeft="529.317470222134,110.329194465425">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="82.3492126481656,0"
-              Start="0,0"
-              End="74.8492126481656,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="74.8492126481656,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="26.3870086678328,5,22.0751953125,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="150.285714285715,42.2857142857143"
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Source"
+          TopLeft="118.39682847272,103.434785289215" />
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Fuzzy Lookup Output]"
-          TopLeft="415.555566564019,260.795037266501">
+          TopLeft="473.333345872385,264.468950405189">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-68.4920709831179,0"
+              EndConnector="-126.269850291485,0"
               Start="0,0"
-              End="-60.9920709831179,0">
+              End="-118.769850291485,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-60.9920709831179,0" />
+                    End="-118.769850291485,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16054,30 +16034,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Derived Column Output1]"
-          TopLeft="239.920638438044,284.198764033166">
+          TopLeft="933.198435031757,144.024847357073">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="163.28571971636,97.3229849844278"
+              EndConnector="0,106.93168088561"
               Start="0,0"
-              End="163.28571971636,89.8229849844278">
+              End="0,99.4316808856101">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.6614924922139" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.6614924922139"
-                    Point2="0,48.6614924922139"
-                    Point3="4,48.6614924922139" />
-                  <mssgle:LineSegment
-                    End="159.28571971636,48.6614924922139" />
-                  <mssgle:CubicBezierSegment
-                    Point1="159.28571971636,48.6614924922139"
-                    Point2="163.28571971636,48.6614924922139"
-                    Point3="163.28571971636,52.6614924922139" />
-                  <mssgle:LineSegment
-                    End="163.28571971636,89.8229849844278" />
+                    End="0,99.4316808856101" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16088,56 +16056,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Derived Column Output]"
-          TopLeft="693.380968584585,131.590064426129">
+          TopLeft="242.952385102629,284.198764033166">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="165.190480119968,99.0186372022829"
+              EndConnector="0,62.2795058154041"
               Start="0,0"
-              End="165.190480119968,91.5186372022829">
+              End="0,54.7795058154041">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.5093186011415" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.5093186011415"
-                    Point2="0,49.5093186011415"
-                    Point3="4,49.5093186011415" />
-                  <mssgle:LineSegment
-                    End="161.190480119968,49.5093186011415" />
-                  <mssgle:CubicBezierSegment
-                    Point1="161.190480119968,49.5093186011415"
-                    Point2="165.190480119968,49.5093186011415"
-                    Point3="165.190480119968,53.5093186011415" />
-                  <mssgle:LineSegment
-                    End="165.190480119968,91.5186372022829" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="150.285714285715,42.2857142857143"
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Source"
-          TopLeft="115.063495051083,92.6956545761267" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[OLE DB Source Output]"
-          TopLeft="265.349209336797,112.024846683281">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="108.539689456765,0"
-              Start="0,0"
-              End="101.039689456765,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="101.039689456765,0" />
+                    End="0,54.7795058154041" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16148,18 +16078,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Row Count Output 1]"
-          TopLeft="468.634929582975,406.621128002116">
+          TopLeft="311.412703195786,371.295040130116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.9206409546981,0"
+              EndConnector="156.365086973883,0"
               Start="0,0"
-              End="89.4206409546981,0">
+              End="148.865086973883,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="89.4206409546981,0" />
+                    End="148.865086973883,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16168,9 +16098,92 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[OLE DB Source Output]"
+          TopLeft="268.682542758434,124.177020911249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="205.761914254496,0"
+              Start="0,0"
+              End="198.261914254496,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="198.261914254496,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[Lookup Match Output]"
+          TopLeft="845.269863404505,268.990689652805">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-131.936517532119,0"
+              Start="0,0"
+              End="-124.436517532119,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-124.436517532119,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-110.40964548481,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task_SimpleNexus.Paths[keep]"
+          TopLeft="629.873028441501,123.329194802321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.68254964608,0"
+              Start="0,0"
+              End="213.18254964608,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="213.18254964608,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="95.5536771667899,5,22.0751953125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Data Flow Task_SimpleNexus\MarketSourceLookup">
     <Properties>
@@ -16196,19 +16209,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Data Flow Task_SimpleNexus\Fuzzy Lookup_MortgageInsurance">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Data Flow Task_SimpleNexus\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
