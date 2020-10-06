@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="FTP Connection Manager"
-  DTS:DTSID="{F6725036-996A-4F54-B5CD-7983ED5898B8}"
+  DTS:DTSID="{5EECDFBE-2DED-4E8D-84A1-2D3C25A8C1D4}"
   DTS:CreationName="FTP">
   <DTS:PropertyExpression
-    DTS:Name="ConnectionString">@[$Project::FTPConnectionManager_ConnectionString]</DTS:PropertyExpression>
+    DTS:Name="ConnectionString">@[$Project::FTPConnectionManager_ConnectionString1]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectionString="ftp.drivehq.com:21">
@@ -14,7 +14,7 @@
         DTS:UsePassiveMode="True">
         <DTS:Property
           DTS:Name="ServerPassword"
-          Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkIOYGkRaLUGVD/1O09t+ewAAAAACAAAAAAAQZgAAAAEAACAAAAAI/iYL8ZIbY/VI+y5snfc3iwuF+UT9v+9TTVeQXb5h1QAAAAAOgAAAAAIAACAAAABjPC7Eb4Llo8SJxAGLtRc+ytFsgd6mPAfTA+jyrozfXpAAAACQ5jBOKW19MW2rjlWLAJyPt4gZfCplUYbtvppKxZc4uHjXea4RveCV1F2MsYDMXcKFVvprnpfuZ0QaasTVqMeCcQd686a6yXA6leIJ40t0JMWWcTxvJouAUXdjTxkmJihzft47bqytvSQDg43r4L84PbThJjZ864KIHhxuZa1N8sELVIGs2pk1dj8YEQm6IaVAAAAAOcOjamh3mommGAoccklqktI5eOGcxrN2yunQOmdZtGR0rzzsqlQWoyaRcKGBbhb4YVgjSDLnbBcI/izuwtciDQ==</DTS:Property>
+          Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkIOYGkRaLUGVD/1O09t+ewAAAAACAAAAAAAQZgAAAAEAACAAAACJqQ4pSVzc2q7DVqKL9iT567O1nXDpar6H+lb7IpXnOgAAAAAOgAAAAAIAACAAAADBGUNmy0WFHNcE3hOPZBKn1xF0tqHzY2vzEa0kHH5XuZAAAADe81n2FXy2ED/V3Y55pVWBnnXYPIYaCQwvd7FJm4CPA9q+15hnM/BxFd1H3JaVvdrr6Az5Yx+WBp+NCM1J3qKRwyqPwAYUr4pcMaGjdzt9mghGrWZH82LbS7VELt1CTh5wYDkOQE8ePpElbQZeJ/qxzyw6h6K8QNh4CMPRI+KbYUJ1vO6pcDbTLo1bDUzye6FAAAAAFD5Dn7LBazEz8ZhLDZre0XP8mjDS3NAnXgtVjDYQDIIaVZKIK/helgkELZlRVuBNXIKT4AXbs5QATUPqG8txPg==</DTS:Property>
       </DTS:FtpConnection>
     </DTS:ConnectionManager>
   </DTS:ObjectData>

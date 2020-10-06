@@ -12,33 +12,11 @@
   DTS:MaxErrorCount="5"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{A9C62C8B-126B-451F-82D1-0EFAAB4DF32B}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{81AC1A6F-0CC0-4CF5-ADF2-08F38515DC2F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-2TFJGDL.SSISDB]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{576C78C3-625A-4532-B070-E7F500674A55}"
-      DTS:ObjectName="DESKTOP-2TFJGDL.SSISDB">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=DESKTOP-2TFJGDL;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
-  <DTS:Variables>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{61B10B14-36E2-4B83-842D-3D52B0BEA649}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="varPackageName">
-      <DTS:VariableValue
-        DTS:DataType="8">Pkg_Kumelachew_Mengistu_LendingPad.dtsx</DTS:VariableValue>
-    </DTS:Variable>
-  </DTS:Variables>
+  <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Execute SQL Task_LendingPad"
