@@ -11,9 +11,10 @@
       Url="https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc"
       ConnectionString="Service Document Url=https://dunatkcom.sharepoint.com/sites/LendingQB/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;User ID=sharepoint@dunatk.com;Persist Security Info=False;Time Out=600;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
       MicrosoftOnlineServicesAuth="True"
-      AuthType="MicrosoftOnlineService">
+      AuthType="MicrosoftOnlineService"
+      ConnectByProxy="False">
       <Password
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkIOYGkRaLUGVD/1O09t+ewAAAAACAAAAAAAQZgAAAAEAACAAAAC8nXcBtUlVknPztIb7Zd4HB2+fbYZrjXqiMildApWDbQAAAAAOgAAAAAIAACAAAAB3qYqOexr7HFFYdEn10JPGxlOUEEc7MmsN1TfwLH/E5EAAAAC7MsROjazCjc4GlbMbgSL2Zq/aYcjKN7JgoqBkXLe8DrlXmWjT8GZzTMGitujQn13QiZq/rSQbhOvZX/pBGBotQAAAAMRTmpHaZi4EGNnYTDMVplKltPcF+kpMhYxkIz/7J4NWWgcSwPTEMnr6TqN+HmZVNrXerGCUvyuLfrmyVkSYTMw=</Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkIOYGkRaLUGVD/1O09t+ewAAAAACAAAAAAAQZgAAAAEAACAAAAA3nhhGF062GoVhGGREjqCXdbEaV9phxVsn5QBjLp9VHgAAAAAOgAAAAAIAACAAAABcrMsiqWm1SnuOrLo2IlviY4a7F0/qlrACQRKpGtt3wEAAAABJoZy5Vr7+iGol4RoXFs+/zvZuMMQR5nHkiRKtvIu6UigHXYtMs4juOHv/y/3HnEdlR7823DvY/1gRmvg5vX1NQAAAAAwdMFTqx80udP6eMhOrxS6unxTYEpJQPtoBD8jx6vhmT9e56+ngRICZNuFgSDa/FWcOS07MNBniC1GXqnYTI0A=</Password>
     </ODataConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_QuickenLoan"
   DTS:PackageType="5"
-  DTS:VersionBuild="317"
-  DTS:VersionGUID="{8FE1B702-6AAD-4350-AC18-61B17529E2E4}">
+  DTS:VersionBuild="327"
+  DTS:VersionGUID="{82292DC7-5D61-404B-8909-5D324031262C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -127,7 +127,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">10/6/2020 12:38:09 AM</DTS:VariableValue>
+        DTS:DataType="7">10/10/2020 5:56:37 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -182,7 +182,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">10/6/2020 12:38:09 AM</DTS:VariableValue>
+        DTS:DataType="7">10/10/2020 5:56:37 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -225,29 +225,22 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Inputs[Conditional Split Input].Columns[BorrFirstName__c]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="BorrFirstName__c"
-                      lineageId="Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[BorrFirstName__c]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Inputs[Conditional Split Input].Columns[BorrLastName__c]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="BorrLastName__c"
-                      lineageId="Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[BorrLastName__c]" />
+                      refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Inputs[Conditional Split Input].Columns[LastModifiedDate__c]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastModifiedDate__c"
+                      lineageId="Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[ignore]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[keep]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="ignore"
+                  name="keep"
                   synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -255,13 +248,13 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[BorrFirstName__c]} == "Test" || #{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[BorrLastName__c]} == "Test"</property>
+                      name="Expression">#{Package\Data Flow Task_QuickenLoan\Salesforce Source_QuickenLoan.Outputs[Salesforce Source Output].Columns[LastModifiedDate__c]} &gt; @[User::varLastModifiedDate]</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">BorrFirstName__c == "Test" || BorrLastName__c == "Test"</property>
+                      name="FriendlyExpression">LastModifiedDate__c &gt; @[User::varLastModifiedDate]</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -270,10 +263,10 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[keep]"
+                  refId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[ignore]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
-                  name="keep"
+                  name="ignore"
                   synchronousInputId="Package\Data Flow Task_QuickenLoan\Conditional Split.Inputs[Conditional Split Input]">
                   <properties>
                     <property
@@ -9925,7 +9918,7 @@ where [refTable].[MarketSourceCode] = ?</property>
     , UnderwriterRiskAssess__c
     , UnderwritingReceivedDate__c
   FROM Quicken_Loans__c
-  WHERE LastModifiedDate__c &gt; @[User::varLastModifiedDate]
+  WHERE (BorrFirstName__c &lt;&gt; 'Test' or BorrLastName__c &lt;&gt; 'Test')
 
   
 
@@ -11453,9 +11446,9 @@ where [refTable].[MarketSourceCode] = ?</property>
               name="Fuzzy Lookup Output"
               startId="Package\Data Flow Task_QuickenLoan\Fuzzy Lookup_MortgageInsurance.Outputs[Fuzzy Lookup Output]" />
             <path
-              refId="Package\Data Flow Task_QuickenLoan.Paths[Keep]"
+              refId="Package\Data Flow Task_QuickenLoan.Paths[keep]"
               endId="Package\Data Flow Task_QuickenLoan\Derived Column 1.Inputs[Derived Column Input]"
-              name="Keep"
+              name="keep"
               startId="Package\Data Flow Task_QuickenLoan\Conditional Split.Outputs[keep]" />
             <path
               refId="Package\Data Flow Task_QuickenLoan.Paths[Lookup Match Output]"
@@ -11738,14 +11731,35 @@ where [refTable].[MarketSourceCode] = ?</property>
               ReadOnlyVariables="System::PackageName,System::StartTime,User::varBody,User::varFromEmail,User::varPassword,User::varSmtpClient,User::varSmtpServerPort,User::varSubject,User::varToEmail"
               ReadWriteVariables="System::ErrorCode,System::ErrorDescription">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -12143,35 +12157,14 @@ namespace ST_718b55d4abb94e7db24a769abff189fa.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_718b55d4abb94e7db24a769abff189fa")]
-[assembly: AssemblyCopyright("Copyright @  2020")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -12419,68 +12412,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             DTS:DataType="3">0</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnPostExecute]\Execute SQL Task_ETL_LOG"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{82E1C064-09B9-47DB-AE80-06868D0022FF}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task_ETL_LOG"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{48384E39-5DC8-4746-B4E4-71D3F733CCA6}"
-              SQLTask:SqlStatementSource=" INSERT INTO  [QL_Kumelachew_Mengistu_ETL_Log]      (   &#xA; [PackageID]&#xA;      ,[PackageName]&#xA;      ,[SourceName]&#xA;      ,[RunTime]&#xA;      ,[RunBy]&#xA;      ,[NumberOfRowInserted]&#xA;      ,[MaxLastModifiedDate]&#xA;)&#xA;VALUES&#xA;(&#xA;?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;)&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::PackageName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::varSourceName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="User::varRunTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="System::MachineName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="5"
-                SQLTask:DtsVariableName="User::varRowCount"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="131"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="6"
-                SQLTask:DtsVariableName="User::varLastModifiedDate"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:Executables />
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -12633,7 +12565,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="213.142857142858,42.2857142857143"
-          Id="Package.EventHandlers[OnPostExecute]\Execute SQL Task_ETL_LOG"
+          Id="{82E1C064-09B9-47DB-AE80-06868D0022FF}"
           TopLeft="381,231" />
       </GraphLayout>
     </LayoutInfo>
@@ -12822,26 +12754,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task_QuickenLoan.Paths[Keep]"
-          TopLeft="595.984138654864,90.2639765541297">
+          Id="Package\Data Flow Task_QuickenLoan.Paths[keep]"
+          TopLeft="595.984138654863,90.2639765541297">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="108.460324450985,0"
+              EndConnector="108.460324450986,0"
               Start="0,0"
-              End="100.960324450985,0">
+              End="100.960324450986,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="100.960324450985,0" />
+                    End="100.960324450986,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="39.4425645692425,5,22.0751953125,11.609375"
+              BoundingBox="39.4425645692428,5,22.0751953125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

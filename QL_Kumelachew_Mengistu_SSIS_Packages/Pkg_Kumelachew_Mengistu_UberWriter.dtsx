@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Pkg_Kumelachew_Mengistu_UberWriter"
   DTS:PackageType="5"
-  DTS:VersionBuild="311"
-  DTS:VersionGUID="{382BF9A7-FFFB-4C6D-97CC-CA4FBFD04086}">
+  DTS:VersionBuild="314"
+  DTS:VersionGUID="{54C81BA2-CADA-439A-BECF-AF9F6611F827}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -127,7 +127,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varRunTime">
       <DTS:VariableValue
-        DTS:DataType="7">10/6/2020 12:37:52 AM</DTS:VariableValue>
+        DTS:DataType="7">10/7/2020 3:56:48 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -180,7 +180,7 @@ FROM [dbo].[Stg_kumelachew_Mengistu_QL]</DTS:VariableValue>
       DTS:Namespace="User"
       DTS:ObjectName="varTimeStamp">
       <DTS:VariableValue
-        DTS:DataType="7">10/6/2020 12:37:52 AM</DTS:VariableValue>
+        DTS:DataType="7">10/7/2020 3:56:48 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -12665,68 +12665,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             DTS:DataType="3">0</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
-      <DTS:Executables>
-        <DTS:Executable
-          DTS:refId="Package.EventHandlers[OnPostExecute]\Execute SQL Task_ETL_LOG"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{AD453B39-CE85-410F-A522-39A784CD4ED9}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute SQL Task_ETL_LOG"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{48384E39-5DC8-4746-B4E4-71D3F733CCA6}"
-              SQLTask:SqlStatementSource=" INSERT INTO  [QL_Kumelachew_Mengistu_ETL_Log]      (   &#xA; [PackageID]&#xA;      ,[PackageName]&#xA;      ,[SourceName]&#xA;      ,[RunTime]&#xA;      ,[RunBy]&#xA;      ,[NumberOfRowInserted]&#xA;      ,[MaxLastModifiedDate]&#xA;)&#xA;VALUES&#xA;(&#xA;?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;,?&#xA;)&#xA;  " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::PackageID"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="72"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="System::PackageName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="2"
-                SQLTask:DtsVariableName="User::varSourceName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="3"
-                SQLTask:DtsVariableName="User::varRunTime"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="4"
-                SQLTask:DtsVariableName="System::MachineName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="5"
-                SQLTask:DtsVariableName="User::varRowCount"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="131"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="6"
-                SQLTask:DtsVariableName="User::varLastModifiedDate"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="7"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-      </DTS:Executables>
+      <DTS:Executables />
     </DTS:EventHandler>
   </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -12846,7 +12785,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnError]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209.714285714286,42.2857142857143"
           Id="Package.EventHandlers[OnError]\Execute SQL Task_ErrorLog"
@@ -12886,9 +12825,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12901,7 +12838,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="213.142857142858,42.2857142857143"
-          Id="Package.EventHandlers[OnPostExecute]\Execute SQL Task_ETL_LOG"
+          Id="{AD453B39-CE85-410F-A522-39A784CD4ED9}"
           TopLeft="381,231" />
       </GraphLayout>
     </LayoutInfo>
